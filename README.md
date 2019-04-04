@@ -252,7 +252,47 @@ src/app/app.component.html
   </h1>
   <nav>
     <a routerLink="/baraja" routerLinkActive="active">Baraja</a>
-    <a routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ejemplo de Ruta No Definida</a>
+    <a routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</a>
   </nav>
 <router-outlet></router-outlet>
+```
+
+## Baraja
+
+### Http request
+
+```ts
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Baraja } from './baraja';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-baraja',
+  templateUrl: './baraja.component.html',
+  styleUrls: ['./baraja.component.scss']
+})
+
+export class BarajaComponent implements OnInit {
+  
+  // Constructor para iniciar un cliente http
+  constructor(private http: HttpClient) {}
+
+  // Aqui almacenaremos los datos que nos devuelva la request
+  dataSource = [];
+
+  // Direccion del servidor
+  servidor = 'http://192.168.1.175:8080';
+
+  ngOnInit(): void {
+    // Endpoint al que se va a realizar la request
+    const endpoint = '/getBarajas';
+    // Http request en ella procesamos tanto los datos recividos, como un posible error en la peticion
+    this.http.get<Baraja[]>(this.servidor + endpoint).subscribe(data => {
+        this.dataSource.data = data;
+        console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
+}
 ```
