@@ -28,7 +28,7 @@
 
 ## Primeros pasos
 
-### Instalar Node
+### Instalar Angular CLI
 
 ```sh
 npm install -g @angular/cli
