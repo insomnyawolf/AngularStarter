@@ -1,7 +1,15 @@
 # AngularStarter
 
-## Instalar Node
+##Requisitos
+Tener instalado [Node](https://nodejs.org/)
+Dos consolas
+Cualquier editor de texto
+    [VS Code](https://code.visualstudio.com/)
+    [Eclipse](https://www.eclipse.org/)
+### Instalar Node
 ```npm install -g @angular/cli```
-## Crear Nuevo Proyecto 
+### Crear Nuevo Proyecto 
 ```ng new (Nombre proyecto)```
+### Iniciar servidor
+```ng serve --open```
 
