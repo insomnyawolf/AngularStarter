@@ -68,6 +68,35 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 
 ### Administracion de dependencias instaladas
 
+#### main.ts
+
+```sh
+src/main.ts
+```
+
+Aqui van las librerias que se cargan de lado de cliente, como por ejemplo boostrap o hammer.js
+
+```ts
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import 'hammerjs';
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+```
+
+#### app.module.ts
+
+Librerias de servidor
+
 Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
 
 ```sh
@@ -146,6 +175,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 export class AppModule { }
 ```
 
+#### Otros imports
+
+Por ejemplo para importar un tema pondremos la siguiente linea en el archivo
+
+```sh
+src/style.scss
+```
+
+```css
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+```
+
 ### Componentes
 
 Para la creacion de un nuevo componente usaremos el siguiente comando
@@ -179,6 +220,7 @@ import { ErrorComponent } from './error/error.component';
 
 // Definicion de rutas de la aplicacion
 const routes: Routes = [
+  // Mapeo de componentes
   { path: 'baraja', component: BarajaComponent },
   // Ruta por defecto
   { path: '', redirectTo: '/baraja', pathMatch: 'full' },
@@ -201,4 +243,16 @@ El contenido de el componente se mostrara entre las etiquetas ```<router-outlet>
 
 ```sh
 src/app/app.component.html
+```
+
+```html
+<div style="text-align:center">
+  <h1>
+    Bienvenido a {{ title }}!
+  </h1>
+  <nav>
+    <a routerLink="/baraja" routerLinkActive="active">Baraja</a>
+    <a routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ejemplo de Ruta No Definida</a>
+  </nav>
+<router-outlet></router-outlet>
 ```
