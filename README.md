@@ -70,9 +70,7 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 
 Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
 
-```sh
-source/app/app.module.ts
-```
+```source/app/app.module.ts```
 
 Este seria el fichero recien creado
 
@@ -147,3 +145,52 @@ export class AppModule { }
 ```
 
 ### Componentes
+
+Para la creacion de un nuevo componente usaremos el siguiente comando
+
+```sh
+ng generate component (nombre del componente)
+```
+
+En nuestro caso vamos a generar dos, uno para la aplicacion y otro para error
+
+```sh
+ng generate component baraja
+ng generate component error
+```
+
+### Router
+
+Para poder navegar entre vistas de una manera sencilla necesitamos implementar un router
+
+```src/app/app-routing.module.ts```
+
+Un ejemplo de router puede ser el siguiente:
+
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { BarajaComponent } from './baraja/baraja.component';
+import { ErrorComponent } from './error/error.component';
+
+// Definicion de rutas de la aplicacion
+const routes: Routes = [
+  { path: 'baraja', component: BarajaComponent },
+  // Ruta por defecto
+  { path: '', redirectTo: '/baraja', pathMatch: 'full' },
+  // ** mapea cualquier ruta no definida previamente
+  { path: '**', component: ErrorComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+En el se ve como mapeas cada ruta a un componente  
+Cual va a ser la ruta por defecto  
+Redirecciones y la pagina de error  
+
+El contenido de el componente se mostrara entre las etiquetas ```<router-outlet></router-outlet>``` del archivo ```src/app/app.component.html```
