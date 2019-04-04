@@ -70,7 +70,7 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 
 Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
 
-```
+```sh
 source/app/app.module.ts
 ```
 
