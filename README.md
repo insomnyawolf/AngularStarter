@@ -307,3 +307,15 @@ export class BarajaComponent implements OnInit {
   }
 }
 ```
+
+Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
+
+* Delete
+* Get
+* Head
+* Jsonp
+* Option
+* Patch
+* Post 
+* Put
+* Request
