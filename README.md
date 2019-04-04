@@ -24,6 +24,8 @@
 
 ## Herramientas y otros recursos
 
+[Angular IO](https://angular.io/)
+
 ## Primeros pasos
 
 ### Instalar Node
@@ -45,4 +47,15 @@ cd (Nombre proyecto)
 ng serve --open
 ```
 
-Esto iniciará el servidor y una ventana del navegador predeterminado con la app
+Esto iniciará el servidor y una ventana del navegador predeterminado con la app  
+Sobre esto vamos a crear una aplicacion de ejemplo, para ello usaremos Angular Material
+
+### Instalar material y dependencias
+
+```sh
+npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save angular/material2-builds angular/cdk-builds angular/animations-builds
+npm install --save hammerjs
+```
+
+![alt text](./img/instalacionDependencias.png "Instalacion de Dependencias")
