@@ -70,7 +70,9 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 
 Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
 
-```source/app/app.module.ts```
+```sh
+src/app/app.module.ts
+```
 
 Este seria el fichero recien creado
 
@@ -163,7 +165,9 @@ ng generate component error
 
 Para poder navegar entre vistas de una manera sencilla necesitamos implementar un router
 
-```src/app/app-routing.module.ts```
+```sh
+src/app/app-routing.module.ts
+```
 
 Un ejemplo de router puede ser el siguiente:
 
@@ -193,4 +197,8 @@ En el se ve como mapeas cada ruta a un componente
 Cual va a ser la ruta por defecto  
 Redirecciones y la pagina de error  
 
-El contenido de el componente se mostrara entre las etiquetas ```<router-outlet></router-outlet>``` del archivo ```src/app/app.component.html```
+El contenido de el componente se mostrara entre las etiquetas ```<router-outlet></router-outlet>``` del archivo
+
+```sh
+src/app/app.component.html
+```
