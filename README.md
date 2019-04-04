@@ -259,6 +259,17 @@ src/app/app.component.html
 
 ## Baraja
 
+Trabajaremos con las siguiente clases
+
+```ts
+export class Baraja {
+  id: number;
+  nombre: string;
+  cantidadCartas: string;
+  marca: string;
+}
+```
+
 ### Http request
 
 ```ts
