@@ -96,3 +96,54 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
+
+Sobre el vamos a importar las siguientes depencias:
+
+* HttpClientModule
+* MatInputModule
+* MatTableModule
+* MatPaginatorModule
+* MatSortModule
+* MatProgressSpinnerModule
+* MatDialogModule
+* BrowserAnimationsModule
+
+Importante, HttpClientModule siempre se debe importar despues de haber importado BrowserModule
+
+Este seria el archivo final
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
+  MatSortModule, MatTableModule, MatDialogModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+### Componentes
