@@ -316,6 +316,6 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
 * Jsonp
 * Option
 * Patch
-* Post 
+* Post
 * Put
 * Request
