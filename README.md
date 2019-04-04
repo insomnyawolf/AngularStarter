@@ -10,15 +10,19 @@
 
 ### Instalar Node
 
-```npm install -g @angular/cli```
+```sh
+npm install -g @angular/cli
+```
 
 ### Crear Nuevo Proyecto
 
-```ng new (Nombre proyecto)```
+```sh
+ng new (Nombre proyecto)
+```
 
 ### Iniciar servidor
 
-```cmd
+```sh
 cd (Nombre proyecto)
 ng serve --open
 ```
