@@ -58,4 +58,36 @@ npm install --save angular/material2-builds angular/cdk-builds angular/animation
 npm install --save hammerjs
 ```
 
-![alt text](./img/instalacionDependencias.png "Instalacion de Dependencias")
+![Instalacion de Dependencias](./img/instalacionDependencias.png "Instalacion de Dependencias")
+
+Una vez que acabe de instalar nos mostrará:
+
+![Instalacion de Dependencias Completada](./img/instalacionDependenciasCompletada.png "Instalacion de Dependencias Completada")
+
+Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proceso de instalacion y otra informacion util
+
+### Administracion de dependencias instaladas
+
+Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
+
+```source/app/app.module.ts```
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
