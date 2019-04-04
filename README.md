@@ -72,6 +72,8 @@ Para poder usar los paquetes instalado, primero tenemos que importar los modulos
 
 ```source/app/app.module.ts```
 
+Este seria el fichero recien creado
+
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
