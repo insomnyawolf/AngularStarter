@@ -12,7 +12,7 @@
 
 ```npm install -g @angular/cli```
 
-### Crear Nuevo Proyecto 
+### Crear Nuevo Proyecto
 
 ```ng new (Nombre proyecto)```
 
