@@ -71,6 +71,7 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
 
 ```source/app/app.module.ts```
+
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
