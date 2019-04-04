@@ -2,7 +2,9 @@
 
 ##Requisitos
 Tener instalado [Node](https://nodejs.org/)
+  
 Dos consolas
+  
 Cualquier editor de texto
   
 [VS Code](https://code.visualstudio.com/)
