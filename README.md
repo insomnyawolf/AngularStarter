@@ -12,7 +12,17 @@
   * [Stylus](http://stylus-lang.com)
 * Soporte para plantillas
 * Optimizacion, debido a que solo carga el codigo requerido para la vista actual.
-* Funciona en cualquier dispositivo capaz de cargar una web, ya que angular carga html/css y javascript.
+* Funciona en cualquier dispositivo capaz de cargar una web, ya que angular carga html/css y javascript.  
+ 
+### Ventajas de Angular
+
+- Gran popularidad
+
+- Gran cantidad de documentacion en internet
+
+- Esta desarrollado por Google
+
+- Ventaja frente a usar librerias externas
 
 ## Requisitos
 
@@ -440,13 +450,3 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
 ```html
 <button class="btn btn-warming btn btn-lg">
 ```
-
-### ANGULAR FRENTE A OTRAS ALTERNATIVAS
-
-- Gran popularidad
-
-- Gran cantidad de documentacion en internet
-
-- Esta desarrollado por Google
-
-- Ventaja frente a usar librerias externas
