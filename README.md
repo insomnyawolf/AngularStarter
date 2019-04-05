@@ -52,9 +52,14 @@ Sobre esto vamos a crear una aplicacion de ejemplo, para ello usaremos Angular M
 
 ### Instalar material y dependencias
 
+Para este proyecto, vamos a necesitar las siguientes depenencias:
+* **`@angular/material:`** Librería principal de Angular Material
+* **`@angular/cdk:`** Angular Material Component Development Kit implementa las funcionalidades principales que se utilizan en Angular Material
+* **`@angular/animations:`** Brinda soporte para animaciones con web-animations
+* **`hammerjs:`** Librería que nos permite reconocer gestos hechos con el raton, pointerEvents, etc.
+
 ```sh
 npm install --save @angular/material @angular/cdk @angular/animations
-npm install --save angular/material2-builds angular/cdk-builds angular/animations-builds
 npm install --save hammerjs
 ```
 
