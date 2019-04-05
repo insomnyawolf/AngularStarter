@@ -66,6 +66,72 @@ Una vez que acabe de instalar nos mostrará:
 
 Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proceso de instalacion y otra informacion util
 
+### Conceptos teóricos
+
+* **Módulos:**
+	Son contenedores de componentes, proveedores de servicios, etc.
+	Todas las aplicaciones hechas con Angular tienen al menos una clase con la anotación "@NgModule" llamada "root module"
+	Dentro de la anotación '@NgModule' se definen los siguientes componentes:
+	* **providers:**
+		Objetos inyectables (servicios) que se encuentran disponibles en el inyector de este modulo
+	* declarations:
+		Conjunto de Componentes, Directivas, Tuberías, etc declaradas en nuestro modulo.
+		A medida que vayamos creando nuevos Componentes estos deberan ser añadidos en esta propiedad
+	* **imports:**
+		Conjunto de NgModules(Otros) cuyos declarables (exportados explicitamente) se desean usar en este modulo
+	* **exports:**
+		Conjunto de declarations que se desean exportar, para que otros módulos los puedan usar al importarnos
+	* **bootstrap:**
+		Conjunto de componentes que se insertan dentro del index.html cuando la aplicación se inicia. Generalmente va el "root component"
+
+* **Tuberías:**
+	Similares a las pipes en UNIX, se utilizan para transformar información de un formato a otro dentro de las plantillas
+	
+* **Proveedores:**
+	Los proveedores dan instrucciones al Sistema de Inyección de Dependencias sobre como obtener un valor para una dependencia
+
+* **Componentes:**
+	Son las Clases anotadas con el decorador "@Component()".
+	Cada Componente controla una región de la ventana del navegador.
+	Están asociados con una plantilla, los dos juntos forman una Vista.
+	
+	* **Plantilla:**
+	Código que define como mostrar la vista del componentes
+	Está formado de Código HTML + directivas, tuberías, etc.
+
+* **Directivas:**
+	Son las Clases anotadas con el decorador "@Directive()".
+	Las Directivas pueden modificar la estructura del DOM o modificar los atributos en el DOM.
+
+* **Servicios:**
+	Son las clases anotadas con el decorador "@Injectable()".
+	Clases con un propósito concreto y guardan lógica no relacionada con la Interfaz de Usuario.
+	Contienen métodos y atributos que se utilizan para el intercambio de información entre Componentes,
+	validar input del usuario, bajar datos del servidor.
+	
+* **Inyección de Dependencias (DI):**
+	Primero de todo, las Dependencias son servicios u objetos que una clase necesita para realizar su función.
+	Ahora bien, la Inyección de Dependencias consiste en que las Clases piden estas dependencias de otros NgModules en vez de crear los servicios u objetos manualmente.
+	
+* **Data Binding:**
+	Proceso que permite a la aplicación mostrar valores al usuario y responder a acciones del usuario.
+	Los dos Data Bindings principales son:
+	* **Event binding:**
+		Nos permite escuchar (suscribirnos) a ciertos tipos de eventos, como pulsaciones del teclado, clicks, etc.
+	* **Property binding:**
+		Nos permite asociar valores calculados o almacenados dentro el controlador a los elementos dentro del HTML (dentro de las plantillas)
+
+* **Inyector:**
+	Son objetos utilizados por el sistema de inyección de dependencias para encontrar dependencias
+    
+* **Diagrama:**
+
+	![Instalacion de Dependencias](https://angular.io/generated/images/guide/architecture/overview2.png "Diagrama")
+
+* **Enlaces útiles:**
+
+    [Glosario](https://angular.io/guide/glossary)
+
 ### Administracion de dependencias instaladas
 
 #### main.ts
