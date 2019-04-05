@@ -102,8 +102,8 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 	
 	* **Plantilla:**
 	Código que define como mostrar la vista del componentes
-	Está formado de Código HTML + directivas, tuberías, etc.
-
+	Está formado de Código HTML + directivas, tuberías, etc.  
+    
 * **Directivas:**
 	Son las Clases anotadas con el decorador "@Directive()".
 	Las Directivas pueden modificar la estructura del DOM o modificar los atributos en el DOM.
@@ -124,8 +124,8 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 	* **Event binding:**
 		Nos permite escuchar (suscribirnos) a ciertos tipos de eventos, como pulsaciones del teclado, clicks, etc.
 	* **Property binding:**
-		Nos permite asociar valores calculados o almacenados dentro el controlador a los elementos dentro del HTML (dentro de las plantillas)
-
+		Nos permite asociar valores calculados o almacenados dentro el controlador a los elementos dentro del HTML (dentro de las plantillas)  
+        
 * **Inyector:**
 	Son objetos utilizados por el sistema de inyección de dependencias para encontrar dependencias
     
@@ -148,19 +148,23 @@ src/main.ts
 Aqui van las librerias que se cargan de lado de cliente, como por ejemplo boostrap o hammer.js
 
 ```ts
+// Librerias por defecto
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import 'hammerjs';
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+
+// Libreria importada
+import 'hammerjs'; // Complementa a la libreria material y añade soporte a gestos
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+// Es un hook que captura los errores de nuestra aplicación y los muestra en la consola del navegador
+platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(err));
 
 ```
 
@@ -214,12 +218,14 @@ Importante, HttpClientModule siempre se debe importar despues de haber importado
 Así quedaría el archivo final
 
 ```ts
+// Librerias por defecto
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Librerias importadas
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatDialogModule } from '@angular/material';
