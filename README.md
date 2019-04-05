@@ -280,7 +280,7 @@ ng generate component error
 ## Librerias
 
 * Librerias o frameworks
-De un modo o de otro nuestros proyectos han de ser escalables, orientándolo a módulos, utilizando servicios internos en cada módulo y manejando el estado de la aplicación aislado de los componentes.
+ De un modo o de otro nuestros proyectos han de ser escalables, orientándolo a módulos, utilizando servicios internos en cada módulo y manejando el estado de la aplicación aislado de los componentes.
 
 ### Router
 
