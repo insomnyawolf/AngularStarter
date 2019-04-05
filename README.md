@@ -71,7 +71,7 @@ Una vez que acabe de instalar nos mostrará:
 
 Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proceso de instalacion y otra informacion util
 
-### Conceptos teóricos
+## Conceptos teóricos
 
 * **Módulos:**
 	Son contenedores de componentes, proveedores de servicios, etc.
@@ -434,3 +434,13 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
 ```html
 <button class="btn btn-warming">
 ```
+
+### ANGULAR FRENTE A OTRAS ALTERNATIVAS
+
+- Gran popularidad
+
+- Gran cantidad de documentacion en internet
+
+- Esta desarrollado por Google
+
+- Ventaja frente a usar librerias externas
