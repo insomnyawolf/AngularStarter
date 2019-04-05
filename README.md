@@ -79,7 +79,7 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 	Dentro de la anotación '@NgModule' se definen los siguientes componentes:
 	* **providers:**
 		Objetos inyectables (servicios) que se encuentran disponibles en el inyector de este modulo
-	* declarations:
+	* **declarations:**
 		Conjunto de Componentes, Directivas, Tuberías, etc declaradas en nuestro modulo.
 		A medida que vayamos creando nuevos Componentes estos deberan ser añadidos en esta propiedad
 	* **imports:**
