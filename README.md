@@ -83,7 +83,7 @@ Aqui se pueden verlas advertencias y problemas que hayan surgido durante el proc
 		Conjunto de Componentes, Directivas, Tuberías, etc declaradas en nuestro modulo.
 		A medida que vayamos creando nuevos Componentes estos deberan ser añadidos en esta propiedad
 	* **imports:**
-		Conjunto de NgModules(Otros) cuyos declarables (exportados explicitamente) se desean usar en este modulo
+		Conjunto de NgModules(Otros) cuyos declarables (exportados explícitamente) se desean usar en este modulo
 	* **exports:**
 		Conjunto de declarations que se desean exportar, para que otros módulos los puedan usar al importarnos
 	* **bootstrap:**
