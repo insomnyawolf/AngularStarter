@@ -168,13 +168,14 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 Librerias de servidor
 
-Para poder usar los paquetes instalado, primero tenemos que importar los modulos de estos.
+Para poder usar los paquetes instalados primero tenemos que importar sus modulos.
+La importacion de modulos se realiza desde el archivo:
 
 ```sh
 src/app/app.module.ts
 ```
 
-Este seria el fichero recien creado
+Así es como se ve el fichero recien creado
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
@@ -210,7 +211,7 @@ Sobre el vamos a importar las siguientes depencias:
 
 Importante, HttpClientModule siempre se debe importar despues de haber importado BrowserModule
 
-Este seria el archivo final
+Así quedaría el archivo final
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
