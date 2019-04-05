@@ -400,6 +400,29 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
 * Put
 * Request
 
+### ANGULAR MATERIAL
+- Librería de componentes de Material Design
+- Componentes:
+    - Control de formularios
+    - Navegadores
+    - Layouts
+    - Botones e indicadores
+    - Ventanas emergentes o popups
+    - tablas de datos
+
+- Schematics de Material:
+    - Barras de herramientas
+    - Tablas
+    - Formularios
+    - Listas de Cuadrículas dinámicas
+    - Estructuras de carpetas anidadas
+    - Directivas de Drag & Drop
+- Incluyen temas y tipografías
+- Forma de customizar estilos
+- Clases elevation y mixin
+- Creación de Steppers personalizados
+
+
 ### BOOTSTRAP
 - Biblioteca más utilizada de la parte front-end
 - Código abierto para desarrollar con HTML, CSS, Javascript y es multiplataforma
