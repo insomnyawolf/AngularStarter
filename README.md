@@ -432,7 +432,7 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
     - Ej :
 
 ```html
-<button class="btn btn-warming" class="btn btn-lg">
+<button class="btn btn-warming btn btn-lg">
 ```
 
 ### ANGULAR FRENTE A OTRAS ALTERNATIVAS
