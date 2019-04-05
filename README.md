@@ -1,5 +1,8 @@
 # AngularStarter
+## Inicio
 
+* Angular
+ 
 ## Caracteristicas de angular
 
 * La logica esta escrita en typescript
@@ -273,6 +276,11 @@ En nuestro caso vamos a generar dos, uno para la aplicacion y otro para error
 ng generate component baraja
 ng generate component error
 ```
+
+## Librerias
+
+* Librerias o frameworks
+De un modo o de otro nuestros proyectos han de ser escalables, orientándolo a módulos, utilizando servicios internos en cada módulo y manejando el estado de la aplicación aislado de los componentes.
 
 ### Router
 
