@@ -413,7 +413,7 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
 * Put
 * Request
 
-### ANGULAR MATERIAL
+### Angular Material
 - Librería de componentes de Material Design
 - Componentes:
     - Control de formularios
@@ -436,7 +436,7 @@ Aparte de peticiones get, de esta manera podemos realizar peticiones del tipo:
 - Creación de Steppers personalizados
 
 
-### BOOTSTRAP
+### Bootstrap
 - Biblioteca más utilizada de la parte front-end
 - Código abierto para desarrollar con HTML, CSS, Javascript y es multiplataforma
 - Es el segundo proyecto más destacado en GitHub y es usado por la NASA, la MSNBC...
