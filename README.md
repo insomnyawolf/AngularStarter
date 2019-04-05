@@ -377,7 +377,7 @@ export class BarajaComponent implements OnInit {
   ngOnInit(): void {
     // Endpoint al que se va a realizar la request
     const endpoint = '/getBarajas';
-    // Http request en ella procesamos tanto los datos recividos, como un posible error en la peticion
+    // Http request en ella procesamos tanto los datos recibidos, como un posible error en la peticion
     this.http.get<Baraja[]>(this.servidor + endpoint).subscribe(data => {
         this.dataSource.data = data;
         console.log(data);
