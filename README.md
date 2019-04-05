@@ -1,8 +1,5 @@
 # AngularStarter
-## Inicio
 
-* Angular
- 
 ## Caracteristicas de angular
 
 * La logica esta escrita en typescript
