@@ -1,12 +1,12 @@
-package com.metrica.controller;
+package controller;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.metrica.pojos.Baraja;
-import com.metrica.pojos.BarajaRepository;
+import pojos.Baraja;
+import pojos.BarajaRepository;
 
 @RestController
 public class BarajaController {
@@ -15,20 +15,20 @@ public class BarajaController {
 	private BarajaRepository br;
 
 	@CrossOrigin
-	@GetMapping("/getBarajas")
+	@GetMapping("/baraja")
 	public Iterable<Baraja> getBarajas() {
 		return br.findAll();
 	}
 
 	@CrossOrigin
-	@PostMapping("/addBaraja")
+	@PostMapping("/baraja")
 	public String addBaraja(@RequestBody Baraja baraja) {
 		br.save(baraja);
 		return "Added";
 	}
 
 	@CrossOrigin
-	@PutMapping("/editBaraja/{id}")
+	@PutMapping("/baraja/{id}")
 	public String editBaraja(@RequestBody Baraja baraja, @PathVariable(value = "id") Integer id) {
 		if (!br.existsById(id)) {
 			return "Esa Baraja NO existe";
@@ -56,7 +56,7 @@ public class BarajaController {
 	}
 
 	@CrossOrigin
-	@DeleteMapping("/deleteBaraja/{id}")
+	@DeleteMapping("/baraja/{id}")
 	public String deleteBaraja(@PathVariable(value = "id") Integer id) {
 		if (!(br.existsById(id))) {
 			return "Esa Baraja NO existe";

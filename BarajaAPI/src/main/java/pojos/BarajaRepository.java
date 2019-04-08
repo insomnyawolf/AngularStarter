@@ -1,4 +1,4 @@
-package com.metrica.pojos;
+package pojos;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;

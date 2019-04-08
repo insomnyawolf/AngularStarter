@@ -1,4 +1,4 @@
-package com.metrica.pojos;
+package pojos;
 
 import javax.persistence.*;
 
