@@ -21,6 +21,7 @@ export class BarajaDialogComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.dialogRef.disableClose = true;
     this.formGroup = this.fbuilder.group({
       id: this.baraja.id,
     });

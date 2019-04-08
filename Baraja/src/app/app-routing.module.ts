@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BarajaComponent } from './baraja/baraja.component';
 import { ErrorComponent } from './error/error.component';
