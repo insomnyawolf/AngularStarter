@@ -8,6 +8,7 @@ import { Baraja } from './baraja';
 @Component({
   selector: 'app-baraja-dialog',
   templateUrl: './baraja-dialog.html',
+  styleUrls: ['./baraja.dialog.scss']
 })
 
 export class BarajaDialogComponent implements OnInit {
@@ -29,7 +30,7 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   closeDialog() {
-    this.dialogRef.close('Pizza!');
+    this.closeDialog();
   }
 
   addBaraja() {
