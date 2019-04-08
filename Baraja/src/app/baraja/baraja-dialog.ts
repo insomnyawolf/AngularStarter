@@ -1,10 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ApiService } from '../shared/api/api.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
 import { Baraja } from './baraja';
-import { NgForm } from '@angular/forms';
+import { ApiService } from '../shared/api/api.service';
 
 @Component({
   selector: 'app-baraja-dialog',
@@ -16,7 +15,7 @@ export class BarajaDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<BarajaDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public baraja: Baraja,
               private fbuilder: FormBuilder,
-              private apiService: ApiService) {}
+              private ApiService: ApiService) {}
 
   formGroup: FormGroup;
 
@@ -28,23 +27,29 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   closeDialog() {
-    this.closeDialog();
+    this.dialogRef.close(null);
   }
 
-  addBaraja(form: NgForm) {
+  addBaraja() {
     const endpoint = '/addBaraja';
+    const formObj = this.formGroup.getRawValue();
+    const serializedForm = JSON.stringify(formObj);
+    console.log(serializedForm);
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.apiService.apiPost(endpoint, form, headers).subscribe(
+    this.ApiService.apiPost(endpoint, serializedForm, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
     this.closeDialog();
   }
 
-  editBaraja(form: NgForm) {
+  editBaraja() {
     const endpoint = '/editBaraja';
+    const formObj = this.formGroup.getRawValue();
+    const serializedForm = JSON.stringify(formObj);
+    console.log(serializedForm);
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.apiService.apiPut(endpoint, form, this.baraja.id, headers).subscribe(
+    this.ApiService.apiPut(endpoint, serializedForm, this.baraja.id, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
@@ -53,7 +58,7 @@ export class BarajaDialogComponent implements OnInit {
 
   deleteBaraja() {
     const endpoint = '/deleteBaraja';
-    this.apiService.apiDelete(endpoint, this.baraja.id).subscribe(
+    this.ApiService.apiDelete(endpoint, this.baraja.id).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );

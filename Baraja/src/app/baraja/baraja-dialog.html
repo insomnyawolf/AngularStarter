@@ -1,11 +1,13 @@
-<h1 mat-dialog-title>Baraja:</h1>
-<form #barajaForm="ngForm" (ngSubmit)="baraja.id ? editBaraja(barajaForm.value) : addBaraja(barajaForm.value)">
-<div mat-dialog-content >
-    <mat-dialog-actions>
-    <button id="close-dialog" (click)="closeDialog()" color="warn">
+<div mat-dialog-title>
+  <h1 id="title">
+    Baraja:
+  </h1>
+  <button id="close-dialog" (click)="closeDialog()" color="warn">
       <i class="material-icons">close</i>
-    </button>
-    </mat-dialog-actions>
+  </button>
+</div>
+<div mat-dialog-content >
+  <form id="barajaForm" #barajaForm="ngForm" (ngSubmit)="baraja.id ? editBaraja(barajaForm.value) : addBaraja(barajaForm.value)">
     <div class="input input-width inline" >
         <mat-form-field appearance="outline">
             <mat-label>Nombre</mat-label>
@@ -26,5 +28,6 @@
     [disabled]="!barajaForm.form.valid">{{baraja.id ? 'Update' : 'Add'}}</button>
     <button mat-fab color="warn" class="button" (click)="deleteBaraja()" *ngIf="baraja.id">Eliminar</button>
   </mat-dialog-actions>
+  </form>
 </div>
-</form>
+
