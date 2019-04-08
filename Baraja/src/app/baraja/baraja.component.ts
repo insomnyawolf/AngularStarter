@@ -16,7 +16,7 @@ export class BarajaComponent implements OnInit {
 
   dataSource = new MatTableDataSource<Baraja>();
   selectedBaraja = null;
-
+  endpoint = '/baraja';
 
   barajaColumns = ['nombre', 'cantidadCartas', 'marca' ];
 
@@ -24,10 +24,9 @@ export class BarajaComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
-    const endpoint = '/baraja'
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.apiService.apiGet(endpoint).subscribe(data => {
+    this.apiService.apiGet(this.endpoint).subscribe(data => {
         this.dataSource.data = data;
         console.log(this.dataSource);
     }, error => {

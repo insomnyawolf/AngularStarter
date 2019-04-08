@@ -20,7 +20,7 @@ export class BarajaDialogComponent implements OnInit {
               public dialog: MatDialog,) {}
 
   formGroup: FormGroup;
-
+  endpoint = '/baraja';
 
   ngOnInit(): void {
     this.dialogRef.disableClose = true;
@@ -33,26 +33,18 @@ export class BarajaDialogComponent implements OnInit {
     this.dialogRef.close(null);
   }
 
-  addBaraja() {
-    const endpoint = '/baraja';
-    const formObj = this.formGroup.getRawValue();
-    const serializedForm = JSON.stringify(formObj);
-    console.log(serializedForm);
+  addBaraja(form: NgForm) {
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.ApiService.apiPost(endpoint, serializedForm, headers).subscribe(
+    this.ApiService.apiPost(this.endpoint, form, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
     this.closeDialog();
   }
 
-  editBaraja() {
-    const endpoint = '/baraja';
-    const formObj = this.formGroup.getRawValue();
-    const serializedForm = JSON.stringify(formObj);
-    console.log(serializedForm);
+  editBaraja(form: NgForm) {
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.ApiService.apiPut(endpoint, serializedForm, this.baraja.id, headers).subscribe(
+    this.ApiService.apiPut(this.endpoint, form, this.baraja.id, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
