@@ -9,6 +9,9 @@
   </nav>
   <br />
   <p>
-    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null" [dismissible]="true"> Necesitas un dlc para poder acceder a este enlace,<br /> puedes comprarlo por {{ dlcPrice }} € en <a href="https://www.metrica.es/" target="_blank" >Metrica</a> </ngb-alert>
+    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null" [dismissible]="true">
+      Necesitas un dlc para poder acceder a este enlace,<br />
+      puedes comprarlo por {{ dlcPrice }} € en <a href="https://www.metrica.es/" target="_blank" >Metrica</a>
+    </ngb-alert>
   </p>
 <router-outlet></router-outlet>
