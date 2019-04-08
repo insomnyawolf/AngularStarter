@@ -55,19 +55,12 @@ export class BarajaDialogComponent implements OnInit {
   deleteBaraja() {
     const dialogRef = this.dialog.open(DeletePopupComponent, {
       width: '70%',
-      height: '70%',
+      height: '40%',
       data: this.baraja.id,
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.ngOnInit();
-    });/*
-    const endpoint = '/baraja';
-    this.ApiService.apiDelete(endpoint, this.baraja.id).subscribe(
-      data => console.log('success!', data),
-      error => console.error('couldn\'t post because', error)
-    );
-    this.closeDialog();
-    */
+    });
   }
 }
