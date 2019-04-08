@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pojos.Baraja;
 import pojos.BarajaRepository;
 
+@CrossOrigin
 @RestController
 public class BarajaController {
 
