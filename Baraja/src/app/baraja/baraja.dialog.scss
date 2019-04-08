@@ -1,3 +1,12 @@
+h1#title {
+  display: inline-table;
+}
+
 button#close-dialog {
   float: right;
+  margin-left: 10px;
+}
+
+form#barajaForm {
+  height: auto;
 }
