@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
 import { Baraja } from './baraja';
 import { ApiService } from '../shared/api/api.service';
-import { DeletePoppup } from './delete-popup/delete-popup';
+import { DeletePopupComponent } from '../delete-popup/delete-popup.component';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-baraja-dialog',
