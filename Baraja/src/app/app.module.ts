@@ -4,14 +4,26 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Http Client
 import { HttpClientModule } from '@angular/common/http';
+
+// Material
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatDialogModule, MatButtonModule } from '@angular/material';
+
+// Browser Animation
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+// Reactive Forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// BootStrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// Componentes Proyecto
 import { BarajaComponent } from './baraja/baraja.component';
 import { ErrorComponent } from './error/error.component';
 import { BarajaDialogComponent } from './baraja/baraja-dialog';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     HttpClientModule,
     MatButtonModule,
     MatInputModule,
