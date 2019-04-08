@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatTableDataSource, MatSort, MatPaginator, Sort } from '@angular/material';
 import { Baraja } from './baraja';
-import { HttpClient } from '@angular/common/http';
 import { BarajaDialogComponent } from './baraja-dialog';
 import { BarajaServiceService } from '../shared/Baraja-service/Baraja-service.service';
 
@@ -25,9 +24,10 @@ export class BarajaComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
+    const endpoint = '/getBarajas'
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.barajaService.getAllBarajas().subscribe(data => {
+    this.barajaService.apiGet(endpoint).subscribe(data => {
         this.dataSource.data = data;
         console.log(this.dataSource);
     }, error => {
