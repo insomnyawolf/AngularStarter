@@ -17,19 +17,19 @@ export class ApiService {
     }
 
     apiPost(endpoint: string, baraja: any, headers: HttpHeaders): Observable<any> {
-      let result: Observable<Object>;
+      let result: Observable<any>;
       result = this.http.post(this.API + endpoint, baraja, {headers});
       return result;
     }
 
     apiPut(endpoint: string, baraja: any, id: number, headers: HttpHeaders): Observable<any>{
-      let result: Observable<Object>;
-      result = this.http.put(this.API + endpoint + "/" + id, baraja, {headers});
+      let result: Observable<any>;
+      result = this.http.put(this.API + endpoint + '/' + id, baraja, {headers});
       return result;
     }
 
     apiDelete(endpoint: string, id: number){
-      return this.http.delete(this.API + endpoint + "/" + id);
+      return this.http.delete(this.API + endpoint + '/' + id);
     }
 
 }
