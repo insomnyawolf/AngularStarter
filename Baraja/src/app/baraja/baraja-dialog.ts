@@ -17,7 +17,7 @@ export class BarajaDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<BarajaDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public baraja: Baraja,
               private fbuilder: FormBuilder,
-              private ApiService: ApiService,
+              private apiService: ApiService,
               public dialog: MatDialog,) {}
 
   formGroup: FormGroup;
@@ -36,7 +36,7 @@ export class BarajaDialogComponent implements OnInit {
 
   addBaraja(form: NgForm) {
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.ApiService.apiPost(this.endpoint, form, headers).subscribe(
+    this.apiService.apiPost(this.endpoint, form, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
@@ -45,7 +45,7 @@ export class BarajaDialogComponent implements OnInit {
 
   editBaraja(form: NgForm) {
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.ApiService.apiPut(this.endpoint, form, this.baraja.id, headers).subscribe(
+    this.apiService.apiPut(this.endpoint, form, this.baraja.id, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
@@ -54,8 +54,9 @@ export class BarajaDialogComponent implements OnInit {
 
   deleteBaraja() {
     const dialogRef = this.dialog.open(DeletePopupComponent, {
-      width: '90%',
-      height: '90%',
+      width: '70%',
+      height: '70%',
+      data: this.baraja.id,
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

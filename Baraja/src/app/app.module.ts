@@ -35,7 +35,8 @@ import { DeletePopupComponent } from './delete-popup/delete-popup.component';
     DeletePopupComponent
   ],
   entryComponents: [
-    BarajaDialogComponent
+    BarajaDialogComponent,
+    DeletePopupComponent
   ],
   imports: [
     BrowserModule,
