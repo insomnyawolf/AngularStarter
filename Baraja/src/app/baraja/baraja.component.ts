@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatTableDataSource, MatSort, MatPaginator, Sort } from '@angular/material';
 import { Baraja } from './baraja';
 import { BarajaDialogComponent } from './baraja-dialog';
-import { BarajaServiceService } from '../shared/Baraja-service/Baraja-service.service';
+import { ApiService } from '../shared/api/api.service';
 
 @Component({
   selector: 'app-baraja',
@@ -12,7 +12,7 @@ import { BarajaServiceService } from '../shared/Baraja-service/Baraja-service.se
 
 export class BarajaComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private barajaService: BarajaServiceService) {}
+  constructor(public dialog: MatDialog, private apiService: ApiService) {}
 
   dataSource = new MatTableDataSource<Baraja>();
   selectedBaraja = null;
@@ -27,7 +27,7 @@ export class BarajaComponent implements OnInit {
     const endpoint = '/getBarajas'
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.barajaService.apiGet(endpoint).subscribe(data => {
+    this.apiService.apiGet(endpoint).subscribe(data => {
         this.dataSource.data = data;
         console.log(this.dataSource);
     }, error => {

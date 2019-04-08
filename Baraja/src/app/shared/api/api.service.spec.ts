@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BarajaServiceService } from './baraja-service.service';
+import { ApiService } from './api.service';
 
-describe('BarajaServiceService', () => {
+describe('ApiService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

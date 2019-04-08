@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BarajaServiceService {
+export class ApiService {
 
   public API = 'http://192.168.1.175:8080';
 
@@ -22,9 +22,9 @@ export class BarajaServiceService {
       return result;
     }
 
-    apiPut(endpoint: string, baraja: any, headers: HttpHeaders): Observable<any>{
+    apiPut(endpoint: string, baraja: any, id: number, headers: HttpHeaders): Observable<any>{
       let result: Observable<Object>;
-      result = this.http.put(this.API + endpoint, baraja, {headers});
+      result = this.http.put(this.API + endpoint + "/" + id, baraja, {headers});
       return result;
     }
 

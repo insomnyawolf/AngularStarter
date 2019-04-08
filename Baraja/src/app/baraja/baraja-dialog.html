@@ -1,4 +1,5 @@
 <h1 mat-dialog-title>Baraja:</h1>
+<form #barajaForm="ngForm" (ngSubmit)="baraja.id ? editBaraja(barajaForm.value) : addBaraja(barajaForm.value)">
 <div mat-dialog-content >
     <mat-dialog-actions>
     <button id="close-dialog" (click)="closeDialog()" color="warn">
@@ -6,22 +7,24 @@
     </button>
     </mat-dialog-actions>
     <div class="input input-width inline" >
-        <mat-form-field appearance="outline" [formGroup]="formGroup">
+        <mat-form-field appearance="outline">
             <mat-label>Nombre</mat-label>
-            <input matInput value="{{ baraja.nombre }}" formControlName="nombre">
+            <input matInput required [(ngModel)]="baraja.nombre" name="nombre">
           </mat-form-field>
-          <mat-form-field appearance="outline" [formGroup]="formGroup">
+          <mat-form-field appearance="outline">
               <mat-label>Cantidad de Cartas</mat-label>
-              <input matInput id="apellido1" value="{{ baraja.cantidadCartas }}" formControlName="cantidadCartas" type="number">
+              <input matInput [(ngModel)]="baraja.cantidadCartas" name="cantidadCartas"
+              type="number">
           </mat-form-field>
-          <mat-form-field appearance="outline" [formGroup]="formGroup">
+          <mat-form-field appearance="outline">
               <mat-label>Marca</mat-label>
-              <input matInput value="{{ baraja.marca }}" formControlName="marca">
+              <input matInput [(ngModel)]="baraja.marca" name="marca">
           </mat-form-field>
     </div>
   <mat-dialog-actions>
-    <button mat-fab color="primary" class="button" (click)="addBaraja()" *ngIf="!baraja.id">Añadir</button>
-    <button mat-fab color="primary" class="button" (click)="editBaraja()" *ngIf="baraja.id">Editar</button>
+    <button mat-fab color="primary" type="submit" class="button"
+    [disabled]="!barajaForm.form.valid">{{baraja.id ? 'Update' : 'Add'}}</button>
     <button mat-fab color="warn" class="button" (click)="deleteBaraja()" *ngIf="baraja.id">Eliminar</button>
   </mat-dialog-actions>
 </div>
+</form>
