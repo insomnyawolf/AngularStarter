@@ -3,8 +3,12 @@
     Bienvenido a {{ title }}!
   </h1>
   <nav>
-    <a mat-raised-button color="accent" routerLink="/baraja" routerLinkActive="active">Baraja</a>
-    <a mat-raised-button color="primary" disabled>Este no hace nada</a>
-    <a mat-raised-button color="warn" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</a>
+    <button  mat-raised-button color="accent" routerLink="/baraja" routerLinkActive="active">Baraja</button><br />
+    <button (click)="buyDLC()" mat-raised-button color="disabled">Projecto finalizado</button><br />
+    <button mat-raised-button color="warn" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</button><br />
   </nav>
+  <br />
+  <p>
+    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null" [dismissible]="true"> Necesitas un dlc para poder acceder a este enlace,<br /> puedes comprarlo por {{ dlcPrice }} € en <a href="https://www.metrica.es/" target="_blank" >Metrica</a> </ngb-alert>
+  </p>
 <router-outlet></router-outlet>
