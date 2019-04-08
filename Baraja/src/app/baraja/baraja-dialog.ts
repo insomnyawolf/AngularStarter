@@ -15,10 +15,11 @@ export class BarajaDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<BarajaDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public baraja: Baraja,
               private fbuilder: FormBuilder,
-              private ApiService: ApiService) {}
+              private apiService: ApiService) {}
 
   formGroup: FormGroup;
 
+  endpoint = '/baraja';
 
   ngOnInit(): void {
     this.dialogRef.disableClose = true;
@@ -32,12 +33,11 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   addBaraja() {
-    const endpoint = '/addBaraja';
     const formObj = this.formGroup.getRawValue();
     const serializedForm = JSON.stringify(formObj);
     console.log(serializedForm);
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.ApiService.apiPost(endpoint, serializedForm, headers).subscribe(
+    this.apiService.apiPost(this.endpoint, serializedForm, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
@@ -45,12 +45,11 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   editBaraja() {
-    const endpoint = '/editBaraja';
     const formObj = this.formGroup.getRawValue();
     const serializedForm = JSON.stringify(formObj);
     console.log(serializedForm);
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.ApiService.apiPut(endpoint, serializedForm, this.baraja.id, headers).subscribe(
+    this.apiService.apiPut(this.endpoint, serializedForm, this.baraja.id, headers).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
@@ -58,8 +57,7 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   deleteBaraja() {
-    const endpoint = '/deleteBaraja';
-    this.ApiService.apiDelete(endpoint, this.baraja.id).subscribe(
+    this.apiService.apiDelete(this.endpoint, this.baraja.id).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
