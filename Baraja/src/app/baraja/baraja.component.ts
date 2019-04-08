@@ -3,7 +3,7 @@ import { MatDialog, MatTableDataSource, MatSort, MatPaginator, Sort } from '@ang
 import { Baraja } from './baraja';
 import { HttpClient } from '@angular/common/http';
 import { BarajaDialogComponent } from './baraja-dialog';
-
+import { BarajaServiceService } from '../shared/Baraja-service/Baraja-service.service';
 
 @Component({
   selector: 'app-baraja',
@@ -13,12 +13,11 @@ import { BarajaDialogComponent } from './baraja-dialog';
 
 export class BarajaComponent implements OnInit {
 
-  constructor(private http: HttpClient, public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private barajaService: BarajaServiceService) {}
 
   dataSource = new MatTableDataSource<Baraja>();
   selectedBaraja = null;
 
-  servidor = 'http://192.168.1.175:8080';
 
   barajaColumns = ['nombre', 'cantidadCartas', 'marca' ];
 
@@ -26,10 +25,9 @@ export class BarajaComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
-    const endpoint = '/getBarajas';
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.http.get<Baraja[]>(this.servidor + endpoint).subscribe(data => {
+    this.barajaService.getAllBarajas().subscribe(data => {
         this.dataSource.data = data;
         console.log(this.dataSource);
     }, error => {
