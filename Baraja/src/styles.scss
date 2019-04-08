@@ -11,11 +11,21 @@ body {
   overflow-x: hidden;
 }
 
+#addUpdateButton{
+  background-color: #760FA3;
+}
+
+#addUpdateButton:disabled{
+  background-color: #ccc;
+}
+
 .header {
   margin-top: 0px;
   //background-color: #00ff73;
-  color: #FFF;
+  background-color: #9F46C5;
+  color: #FFFFFF;
   border-radius: 10px;
+  /*
   background: rgba(0,127,128,1);
   background: -moz-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,127,128,1)), color-stop(100%, rgba(117,0,63,1)));
@@ -24,6 +34,7 @@ body {
   background: -ms-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
   background: linear-gradient(to right, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007f80', endColorstr='#75003f', GradientType=1 );
+  */
 }
 
 mat-label.ng-star-inserted{
@@ -61,10 +72,10 @@ div#table-footer {
 th.mat-header-cell {
   padding: 12px;
   max-width: 320px;
-  background-color: #111110da;
+  background-color: #760FA3;
   font-size: 14px;
   font-weight: bold;
-  color: #CCC;
+  color: #FFFFFF;
 }
 
 #filtro {
@@ -76,7 +87,8 @@ th.mat-header-cell {
 }
 
 tr.selected td {
-		background-color: #10006ba6;
+		background-color: #250235;
+    color: #FFFFFF;
 }
 
 .mat-dialog-title{
@@ -113,11 +125,11 @@ table {
 }
 
 tr:nth-child(odd){
-		background-color: #ccc;;
+		background-color: #FFFFFF;
 }
 
 tr:nth-child(even){
-		background-color: #999;;
+		background-color: #CD8DE8;
 }
 
 	// mat-icon-stepper selected color change
@@ -204,4 +216,3 @@ tr:nth-child(even){
 	.inline{
 		display: inline-grid;
 	}
-
