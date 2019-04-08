@@ -24,9 +24,6 @@ export class BarajaDialogComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.fbuilder.group({
       id: this.baraja.id,
-      nombre: new FormControl(null),
-      cantidadCartas: new FormControl(null),
-      marca: new FormControl(null),
     });
   }
 
