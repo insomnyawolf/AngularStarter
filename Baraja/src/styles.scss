@@ -1,0 +1,207 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 99%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  margin-top: 0px;
+  //background-color: #00ff73;
+  color: #FFF;
+  border-radius: 10px;
+  background: rgba(0,127,128,1);
+  background: -moz-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,127,128,1)), color-stop(100%, rgba(117,0,63,1)));
+  background: -webkit-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
+  background: -o-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
+  background: -ms-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
+  background: linear-gradient(to right, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007f80', endColorstr='#75003f', GradientType=1 );
+}
+
+mat-label.ng-star-inserted{
+  color: #000;
+}
+
+.mat-paginator-page-size-label,
+.mat-paginator-range-label {
+ color: #000;
+}
+
+a.mat-raised-button {
+  margin-left: 10px;
+}
+
+.button {
+  margin-left: 12px!important;
+}
+
+#addButton {
+  margin-bottom: 10px;
+}
+
+table.mat-table {
+  width: 100%;
+  align-content: left;
+  text-align: left;
+}
+
+div#table-footer {
+	//width: fit-content;
+	background-color: rgb(255, 255, 255);
+}
+
+th.mat-header-cell {
+  padding: 12px;
+  max-width: 320px;
+  background-color: #111110da;
+  font-size: 14px;
+  font-weight: bold;
+  color: #CCC;
+}
+
+#filtro {
+	margin: 14px;
+}
+
+.mat-paginator{
+		background-color: transparent;
+}
+
+tr.selected td {
+		background-color: #10006ba6;
+}
+
+.mat-dialog-title{
+		font-size: 2em;
+}
+
+.mat-dialog-container{
+		background-color: #ffffffda;
+}
+
+.mat-dialog-content{
+    color: #000;
+    height: 100%;
+}
+
+.mat-select-value{
+  color: #000;
+}
+
+.mat-input-element{
+  caret-color: #000;
+
+}
+
+table {
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		min-width: 500px;
+}
+
+.mat-cell{
+		color: rgba(0, 0, 0, 0.87);
+}
+
+tr:nth-child(odd){
+		background-color: #ccc;;
+}
+
+tr:nth-child(even){
+		background-color: #999;;
+}
+
+	// mat-icon-stepper selected color change
+	.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+		background-color: red!important;
+	}
+
+	//input outline color
+	.mat-form-field-appearance-outline .mat-form-field-outline {
+		color: #000;
+		// opacity: 1!important;
+	}
+
+	//mat-input focused color
+	.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+		color: #000;
+  }
+
+  // mat-input carent color
+	.mat-input-element {
+		color: #000;
+		caret-color: #000;
+  }
+
+  // mat-label focused style
+	.mat-form-field.mat-focused .mat-form-field-label {
+		color: #000;
+  }
+
+  // mat-label normal state style
+	.mat-form-field-label {
+		color: rgba(0, 0, 0, 0.6);
+		//color: $mainColor!important;
+	}
+
+	// mat-input error outline color
+	.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+		color: red;
+		opacity: 0.8;
+	}
+
+	// mat-input error carent color
+	.mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+		caret-color: red;
+	}
+
+
+
+
+
+	// mat-label error style
+	.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+		color: red;
+	}
+
+	.mat-icon-button[disabled][disabled]{
+		color: #00000056;
+	}
+
+	.mat-select-arrow {
+		color: rgb(0, 0, 0);
+	}
+
+	.mat-option {
+		color: rgba(0,0,0,.87);
+	}
+
+	.mat-paginator-container{
+		text-align: center;
+		padding: 10px;
+		//background-color: #1A204B;
+		font-size: 14px;
+		//color: #CCC;
+	}
+
+	.input{
+		margin: 10px;
+	}
+
+	.input-width{
+		width: 350px;
+	}
+
+	.inline{
+		display: inline-grid;
+	}
+

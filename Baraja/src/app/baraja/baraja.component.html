@@ -1,0 +1,34 @@
+<h2>Response from {{ servidor }}</h2>
+<button mat-fab color="primary" id="addButton" (click)="dialogOpenNew()">Add</button>
+<!--
+<br /> No hay que olvidarse de espaciar los botones
+<br />
+-->
+<div id="table-footer">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)" >
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let baraja"> {{ baraja.nombre }} </td>
+      </ng-container>
+      <ng-container matColumnDef="cantidadCartas">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad Cartas </th>
+          <td mat-cell *matCellDef="let baraja"> {{ baraja.cantidadCartas }} </td>
+        </ng-container>
+      <ng-container matColumnDef="marca">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Marca </th>
+          <td mat-cell *matCellDef="let baraja"> {{ baraja.marca }} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="barajaColumns"></tr>
+      <tr mat-row *matRowDef="let barajas; columns: barajaColumns"
+      [class.selected]="barajas === selectedBaraja" (click)="select(barajas);dialogOpen(barajas)"></tr>
+  </table>
+  <div class="input-width inline">
+      <mat-form-field appearance="outline" id="filtro">
+          <mat-label>Filtro</mat-label>
+          <input matInput (keyup)="applyFilter($event.target.value)">
+      </mat-form-field>
+  </div>
+  <div class="inline">
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

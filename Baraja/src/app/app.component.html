@@ -1,0 +1,10 @@
+<div style="text-align:center">
+  <h1 class="header">
+    Bienvenido a {{ title }}!
+  </h1>
+  <nav>
+    <a mat-raised-button color="accent" routerLink="/baraja" routerLinkActive="active">Baraja</a>
+    <a mat-raised-button color="primary" disabled>Este no hace nada</a>
+    <a mat-raised-button color="warn" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</a>
+  </nav>
+<router-outlet></router-outlet>
