@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
 import { Baraja } from './baraja';
 import { ApiService } from '../shared/api/api.service';
+import { DeletePoppup } from './delete-popup/delete-popup';
 
 @Component({
   selector: 'app-baraja-dialog',
@@ -15,7 +16,8 @@ export class BarajaDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<BarajaDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public baraja: Baraja,
               private fbuilder: FormBuilder,
-              private ApiService: ApiService) {}
+              private ApiService: ApiService,
+              public dialog: MatDialog,) {}
 
   formGroup: FormGroup;
 
@@ -32,7 +34,7 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   addBaraja() {
-    const endpoint = '/addBaraja';
+    const endpoint = '/baraja';
     const formObj = this.formGroup.getRawValue();
     const serializedForm = JSON.stringify(formObj);
     console.log(serializedForm);
@@ -45,7 +47,7 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   editBaraja() {
-    const endpoint = '/editBaraja';
+    const endpoint = '/baraja';
     const formObj = this.formGroup.getRawValue();
     const serializedForm = JSON.stringify(formObj);
     console.log(serializedForm);
@@ -58,11 +60,20 @@ export class BarajaDialogComponent implements OnInit {
   }
 
   deleteBaraja() {
-    const endpoint = '/deleteBaraja';
+    const dialogRef = this.dialog.open(DeletePopupComponent, {
+      width: '90%',
+      height: '90%',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.ngOnInit();
+    });/*
+    const endpoint = '/baraja';
     this.ApiService.apiDelete(endpoint, this.baraja.id).subscribe(
       data => console.log('success!', data),
       error => console.error('couldn\'t post because', error)
     );
     this.closeDialog();
+    */
   }
 }

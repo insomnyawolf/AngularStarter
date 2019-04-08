@@ -24,13 +24,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BarajaComponent } from './baraja/baraja.component';
 import { ErrorComponent } from './error/error.component';
 import { BarajaDialogComponent } from './baraja/baraja-dialog';
+import { DeletePopupComponent } from './delete-popup/delete-popup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BarajaComponent,
     ErrorComponent,
-    BarajaDialogComponent
+    BarajaDialogComponent,
+    DeletePopupComponent
   ],
   entryComponents: [
     BarajaDialogComponent

@@ -24,7 +24,7 @@ export class BarajaComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
-    const endpoint = '/getBarajas'
+    const endpoint = '/baraja'
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.apiService.apiGet(endpoint).subscribe(data => {
