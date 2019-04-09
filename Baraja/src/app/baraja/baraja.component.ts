@@ -70,7 +70,7 @@ export class BarajaComponent implements OnInit {
 
       // Add our tag
       if ((value || '').trim()) {
-        this.tags.push(value.trim());
+        this.tags.push(value.toString().trim());
       }
 
       // Reset the input value
@@ -151,7 +151,6 @@ export class BarajaComponent implements OnInit {
     });
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    console.log(filterValue);
     this.dataSource.filter = filterValue;
   }
 
