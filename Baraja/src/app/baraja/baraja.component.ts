@@ -48,7 +48,7 @@ export class BarajaComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   // Autocomplete
-  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   visible = true;
@@ -56,38 +56,39 @@ export class BarajaComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
-  tags: string[] = [ ];
+  tags: string[] = [];
   tagsCtrl = new FormControl();
   filteredTags: Observable<string[]>;
   allTags: string[] = [];
 
   add(event: MatChipInputEvent): void {
-    // Add fruit only when MatAutocomplete is not open
+    // Add tag only when MatAutocomplete is not open
     // To make sure this does not conflict with OptionSelected Event
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
 
-      // Add our fruit
+      // Add our tag
       if ((value || '').trim()) {
         this.tags.push(value.trim());
       }
 
       // Reset the input value
-      if (input) {
+      if (input.value !== '') {
         input.value = '';
       }
-
       this.tagsCtrl.setValue(null);
     }
+    this.applyFilter();
   }
 
-  remove(fruit: string): void {
-    const index = this.tags.indexOf(fruit);
+  remove(tag: string): void {
+    const index = this.tags.indexOf(tag);
 
     if (index >= 0) {
       this.tags.splice(index, 1);
     }
+    this.applyFilter();
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
@@ -97,20 +98,28 @@ export class BarajaComponent implements OnInit {
   }
 
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue = value.toString().toLowerCase();
 
-    return this.allTags.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allTags.filter(tag => tag.toString().toLowerCase().indexOf(filterValue) === 0);
   }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.apiService.apiGet(this.endpoint).subscribe(data => {
-      this.dataSource.data = data;
-      console.log(this.dataSource);
-      for (const elm of Object.assign(new Baraja(), data)) {
-        console.log(JSON.parse(elm));
-      }
+    this.apiService.apiGet(this.endpoint).subscribe(dat => {
+      this.dataSource.data = dat;
+      const data: Baraja[] = dat;
+      data.forEach(element => {
+        if (element.nombre != null) {
+          this.allTags.push(element.nombre);
+        }
+        if (element.cantidadCartas != null) {
+          this.allTags.push(element.cantidadCartas);
+        }
+        if (element.marca != null) {
+          this.allTags.push(element.marca);
+        }
+      });
     }, error => {
       console.log(error);
     });
@@ -135,9 +144,14 @@ export class BarajaComponent implements OnInit {
     this.dialogOpen(new Baraja());
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter() {
+    let filterValue = '';
+    this.tags.forEach(element => {
+      filterValue = filterValue + ' ' + element;
+    });
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    console.log(filterValue);
     this.dataSource.filter = filterValue;
   }
 
