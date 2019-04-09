@@ -1,12 +1,16 @@
 <div style="text-align:center">
-  <h1 class="header">
+  <div class="header">
+    <div id="bg-image"></div>
+    <h1 id="title">
     Bienvenido a {{ title }}!
-  </h1>
-  <nav>
-    <button  mat-raised-button color="accent" routerLink="/baraja" routerLinkActive="active">Baraja</button><br />
-    <button (click)="buyDLC()" mat-raised-button color="disabled">Projecto finalizado</button><br />
-    <button mat-raised-button color="warn" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</button><br />
-  </nav>
+    </h1>
+    <nav id="tabbar">
+      <button  mat-raised-button color="accent" routerLink="/baraja" routerLinkActive="active">Baraja</button>
+      <button (click)="buyDLC()" mat-raised-button color="disabled">Projecto finalizado</button>
+      <button mat-raised-button color="warn" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</button>
+    </nav>
+  </div>
+
   <br />
   <p>
     <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null" [dismissible]="true">
