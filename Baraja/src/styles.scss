@@ -30,6 +30,7 @@ body {
 }
 
 #myVideo{
+  pointer-events: none;
   margin-top: 0px;
   margin-bottom: 0px;
   display: flex;
@@ -78,6 +79,10 @@ body {
   filter: blur(5px);
   -webkit-filter: blur(5px);
   background-size: cover;
+}
+
+#formFields > * {
+  color: white;
 }
 
 .header {
@@ -163,7 +168,10 @@ tr.selected td {
 }
 
 .mat-dialog-container{
-		background-color: #CD8DE8;
+    overflow-y: hidden;
+		background-color: rgba(40, 40, 40, 0.4);
+    border-radius: 7px;
+    border: 3px groove #C4148B;
 }
 
 .mat-dialog-content{
@@ -242,10 +250,6 @@ tr:nth-child(even){
 	.mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
 		caret-color: red;
 	}
-
-
-
-
 
 	// mat-label error style
 	.mat-form-field.mat-form-field-invalid .mat-form-field-label {

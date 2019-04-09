@@ -63,7 +63,7 @@ export class BarajaDialogComponent implements OnInit {
   deleteBaraja() {
     const dialogRef = this.dialog.open(DeletePopupComponent, {
       width: '70%',
-      height: '40%',
+      height: '60%',
       data: this.baraja.id,
     });
     dialogRef.afterClosed().subscribe(result => {
