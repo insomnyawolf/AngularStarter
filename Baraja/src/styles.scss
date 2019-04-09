@@ -6,6 +6,8 @@
 @import url('https://fonts.googleapis.com/css?family=Playball');
 
 body {
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-family: 'Roboto', sans-serif;
   width: 100%;
   height: 100%;
@@ -23,12 +25,26 @@ body {
   background-color: #ccc;
 }
 
-#myVideo{
+#mediaSound{
   z-index: -100;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#myVideo{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: flex;
   width: 100%;
+  height: 120%;
+  z-index: -100;
   position: absolute;
   background-size: cover;
+}
+
+#table{
+  opacity: 0.8;
 }
 
 #tabbar{
@@ -105,6 +121,9 @@ a.mat-raised-button {
 
 #addButton {
   margin-bottom: 10px;
+  background-color: #1A0C63;
+  border: 2px outset #1FFFE0;
+  border-color: #1FFFE0;
 }
 
 table.mat-table {
@@ -115,7 +134,7 @@ table.mat-table {
 
 div#table-footer {
 	//width: fit-content;
-	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.7);
 }
 
 th.mat-header-cell {
