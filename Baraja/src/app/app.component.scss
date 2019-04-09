@@ -118,28 +118,3 @@
     }
 
 }
-
-.stars {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    &__star {
-        border-radius: 50%;
-        box-shadow: 0 0 4px 1px #FFF;
-        height: 1px;
-        position: absolute;
-        width: 1px;
-        z-index: 100;
-
-        @for $i from 1 through 100 {
-            &:nth-child(#{$i}) {
-                top: random(100) * 1%;
-                left: random(100) * 1%;
-                box-shadow: 0 0 4px random(3) * 1px #FFF;
-            }
-        }
-    }
-}
