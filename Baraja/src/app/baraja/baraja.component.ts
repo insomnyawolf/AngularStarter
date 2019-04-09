@@ -1,8 +1,26 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator, Sort } from '@angular/material';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {COMMA, ENTER, SPACE} from '@angular/cdk/keycodes';
+import {
+  MatDialog,
+  MatTableDataSource,
+  MatSort,
+  MatPaginator,
+  Sort,
+  MatAutocompleteSelectedEvent,
+  MatChipInputEvent,
+  MatAutocomplete
+} from '@angular/material';
 import { Baraja } from './baraja';
 import { BarajaDialogComponent } from './baraja-dialog';
 import { ApiService } from '../shared/api/api.service';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
+
+
+export interface Tag {
+  name: string;
+}
 
 @Component({
   selector: 'app-baraja',
@@ -12,7 +30,12 @@ import { ApiService } from '../shared/api/api.service';
 
 export class BarajaComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private apiService: ApiService) {}
+  constructor(
+    public dialog: MatDialog, private apiService: ApiService) {
+      this.filteredTags = this.tagsCtrl.valueChanges.pipe(
+        startWith(null),
+        map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
+    }
 
   dataSource = new MatTableDataSource<Baraja>();
   selectedBaraja = null;
@@ -20,15 +43,83 @@ export class BarajaComponent implements OnInit {
 
   barajaColumns = ['nombre', 'cantidadCartas', 'marca' ];
 
+  // Table
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  // Autocomplete
+  @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
+  tags: string[] = [];
+  tagsCtrl = new FormControl();
+  filteredTags: Observable<string[]>;
+  allTags: string[] = [];
+
+  add(event: MatChipInputEvent): void {
+    // Add tag only when MatAutocomplete is not open
+    // To make sure this does not conflict with OptionSelected Event
+    if (!this.matAutocomplete.isOpen) {
+      const input = event.input;
+      const value = event.value;
+
+      // Add our tag
+      if ((value || '').trim()) {
+        this.tags.push(value.trim());
+      }
+
+      // Reset the input value
+      if (input.value !== '') {
+        input.value = '';
+      }
+      this.tagsCtrl.setValue(null);
+    }
+    this.applyFilter();
+  }
+
+  remove(tag: string): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+    }
+    this.applyFilter();
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.tags.push(event.option.viewValue);
+    this.tagInput.nativeElement.value = '';
+    this.tagsCtrl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toString().toLowerCase();
+
+    return this.allTags.filter(tag => tag.toString().toLowerCase().indexOf(filterValue) === 0);
+  }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.apiService.apiGet(this.endpoint).subscribe(data => {
-        this.dataSource.data = data;
-        console.log(this.dataSource);
+    this.apiService.apiGet(this.endpoint).subscribe(dat => {
+      this.dataSource.data = dat;
+      const data: Baraja[] = dat;
+      data.forEach(element => {
+        if (element.nombre != null) {
+          this.allTags.push(element.nombre);
+        }
+        if (element.cantidadCartas != null) {
+          this.allTags.push(element.cantidadCartas);
+        }
+        if (element.marca != null) {
+          this.allTags.push(element.marca);
+        }
+      });
     }, error => {
       console.log(error);
     });
@@ -53,9 +144,14 @@ export class BarajaComponent implements OnInit {
     this.dialogOpen(new Baraja());
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter() {
+    let filterValue = '';
+    this.tags.forEach(element => {
+      filterValue = filterValue + ' ' + element;
+    });
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    console.log(filterValue);
     this.dataSource.filter = filterValue;
   }
 
