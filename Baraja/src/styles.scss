@@ -7,9 +7,12 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  width: 99%;
+  width: 100%;
   height: 100%;
   overflow-x: hidden;
+  //background-image: url('https://images3.alphacoders.com/964/964419.jpg');
+  //background-repeat: no-repeat;
+  //background-size: cover;
 }
 
 #addUpdateButton{
@@ -18,6 +21,14 @@ body {
 
 #addUpdateButton:disabled{
   background-color: #ccc;
+}
+
+#myVideo{
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
 }
 
 #tabbar{
@@ -46,7 +57,7 @@ body {
 #bg-image{
   z-index: -100;
   height: 161px;
-  width: 99%;
+  width: 100%;
   border-radius: 10px;
   position: absolute;
   background-image: url('https://www.greenmousetech.com/wp-content/uploads/2018/01/greenmouse-bg1.jpeg');
