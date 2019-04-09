@@ -12,9 +12,6 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  //background-image: url('https://images3.alphacoders.com/964/964419.jpg');
-  //background-repeat: no-repeat;
-  //background-size: cover;
 }
 
 #addUpdateButton{
@@ -90,16 +87,7 @@ body {
   opacity: 0.9;
   //background-color: #9F46C5;
   border-radius: 10px;
-  /*
-  background: rgba(0,127,128,1);
-  background: -moz-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,127,128,1)), color-stop(100%, rgba(117,0,63,1)));
-  background: -webkit-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
-  background: -o-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
-  background: -ms-linear-gradient(left, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
-  background: linear-gradient(to right, rgba(0,127,128,1) 0%, rgba(117,0,63,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007f80', endColorstr='#75003f', GradientType=1 );
-  */
+
 }
 
 mat-label.ng-star-inserted{
@@ -119,11 +107,22 @@ a.mat-raised-button {
   margin-left: 12px!important;
 }
 
-#addButton {
-  margin-bottom: 10px;
+#stylePurpleButton{
+  color: white;
+  background-color: #760FA3;
+  border: 2px outset #fff;
+}
+
+#styleBlueButton {
+  color: white;
   background-color: #1A0C63;
   border: 2px outset #1FFFE0;
-  border-color: #1FFFE0;
+}
+
+#styleWineButton{
+  color: white;
+  background-color: #561541;
+  border: 2px outset #C4148B;
 }
 
 table.mat-table {
@@ -164,7 +163,7 @@ tr.selected td {
 }
 
 .mat-dialog-container{
-		background-color: #ffffffda;
+		background-color: #CD8DE8;
 }
 
 .mat-dialog-content{

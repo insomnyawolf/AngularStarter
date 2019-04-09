@@ -24,9 +24,9 @@
           </mat-form-field>
     </div>
   <mat-dialog-actions>
-    <button mat-fab id="addUpdateButton" type="submit" class="button"
+    <button mat-fab id="stylePurpleButton" type="submit" class="button"
     [disabled]="!barajaForm.form.valid">{{baraja.id ? 'Update' : 'Add'}}</button>
-    <a mat-fab color="warn" id="deleteButton" class="button" (click)="deleteBaraja()" *ngIf="baraja.id">Eliminar</a>
+    <a mat-fab color="warn" id="styleWineButton" class="button" (click)="deleteBaraja()" *ngIf="baraja.id">Eliminar</a>
   </mat-dialog-actions>
   </form>
 
