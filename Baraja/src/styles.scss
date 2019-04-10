@@ -55,19 +55,7 @@ body {
   left: 0;
 }
 
-#myVideo{
-  pointer-events: none;
-  //margin-top: 0px;
-  //margin-bottom: 0px;
-  width: 100%;
-  z-index: -100;
-  display: block;
-  position: fixed;
-  min-height: 100%;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-}
+
 
 #table{
   opacity: 0.8;

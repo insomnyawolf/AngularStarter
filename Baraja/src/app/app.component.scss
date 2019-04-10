@@ -1,3 +1,17 @@
+#myVideo{
+  filter: contrast(150%) hue-rotate(var(--main-hue-color));
+  pointer-events: none;
+
+  width: 100%;
+  z-index: -100;
+  display: block;
+  position: fixed;
+  min-height: 100%;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
 
 .glitch {
     animation: glitch-skew 4s cubic-bezier(.25, .46, .45, .94) 4s infinite;

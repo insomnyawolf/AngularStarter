@@ -1,13 +1,16 @@
 <div>
-<video id="myVideo" loop autoplay>
+<video #myVideo id="myVideo" loop autoplay>
   <source src="assets/Retro_2017_(loop).webm" type="video/webm">
   <source src="assets/Retro_2017_(loop).mp4" type="video/mp4">
   <p>Your browser doesn't support HTML5 video. Here is
      a <a href="assets/Retro_2017_(loop).mp4">link to the video</a> instead.</p>
 </video>
 </div>
+<script>
 
-<audio id="mediaSound" loop autoplay>
+</script>
+
+<audio #myAudio id="mediaSound" loop autoplay>
   <source src="assets/Lazerhawk_-_Overdrive.webm" type="audio/webm">
   <p>Your browser doesn't support HTML5 video. Here is
       a <a href="assets/Lazerhawk_-_Overdrive.webm">link to the video</a> instead.</p>
@@ -40,12 +43,12 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
     </h1>
     <nav id="tabbar">
       <button  mat-raised-button id="styleBlueButton" routerLink="/baraja" routerLinkActive="active">Baraja</button>
-      <button (click)="buyDLC()" id="styleWineButton" mat-raised-button>Projecto finalizado</button>
+      <button (click)="configSongInfectedMushroom()" id="styleWineButton" mat-raised-button>Projecto finalizado</button>
       <button mat-raised-button id="stylePurpleButton" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</button>
     </nav>
   </div>
 
-  <br />
+
   <p>
     <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null" [dismissible]="true">
       Necesitas un dlc para poder acceder a este enlace,<br />
