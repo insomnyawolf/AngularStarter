@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Subject, timer, Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { guess } from 'web-audio-beat-detector';
+declare function require(path: string);
 
 @Component({
   selector: 'app-root',
@@ -17,12 +19,36 @@ export class AppComponent implements OnInit {
   dlcPrice: number;
 
 
+  //buffer = this.audioCtx.createBuffer(2, 22050, 44100);
+  //source=this.audioCtx.createBufferSource();
+
   ngOnInit(): void {
     this.configSongDefault();
+    setInterval(() => {
+         this.doBuffer();
+      }, 1000);
     this.success.subscribe((message) => this.successMessage = message);
     this.success.pipe(
       debounceTime(1000 * 10)
     ).subscribe(() => this.successMessage = null);
+  }
+
+  doBuffer(){
+    const decode = ('audio-decode');
+    const buffer = require("../assets/Lazerhawk_-_Overdrive.mp3");
+    /*
+    let promisere = decode(this.source, {
+      AudioContext = new (window["AudioContext"] || window["webkitAudioContext"])();}?, (err, audioBuffer)=>{
+      guess(audioBuffer)
+      .then(({ bpm, offset }) => {
+          console.log(bpm);
+      })
+      .catch((err) => {
+          console.log(err);
+      });
+    }?);
+    console.log("2");*/
+
   }
 
   buyDLC() {
@@ -33,6 +59,7 @@ export class AppComponent implements OnInit {
   }
 
   configSongDefault(){
+    this.buffer
     this.setPlaySpeed(2.0);
     this.changeStyle('0deg');
     this.setSong('assets/Lazerhawk_-_Overdrive.webm');
@@ -79,4 +106,6 @@ export class AppComponent implements OnInit {
   changeStyle(deg: string) {
     document.documentElement.style.setProperty('--main-hue-color', deg);
   }
+
+
 }
