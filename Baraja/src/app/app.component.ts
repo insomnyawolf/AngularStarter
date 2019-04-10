@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
 
   dlcPrice: number;
 
+  vertical = true;
 
   //buffer = this.audioCtx.createBuffer(2, 22050, 44100);
   //source=this.audioCtx.createBufferSource();

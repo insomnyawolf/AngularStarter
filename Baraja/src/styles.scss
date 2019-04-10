@@ -22,16 +22,15 @@ body {
 *{
   cursor:url("assets/cursor-small.png"), auto !important;
 }
+
 #volumeControl {
-  z-index: 1000;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  min-width: 100px;
-  width: 100px;
-  background-color: #fff;
-  display: block;
+  min-width: 60px;
 }
+
+#volumeControl > mat-slider {
+  margin: 0 auto;
+}
+
 
 #musicMenu{
   z-index: 1000;
@@ -46,13 +45,26 @@ body {
   background-color: #290B1F;
 }
 
-#musicMenu > * > *{
+#musicMenu > * {
+  display:inline-table;
+}
+
+#musicMenu > * > * {
   border-bottom-style: outset;
   border-color: #fff;
   border-radius: 5px;
   margin-top: 0px;
   color: white;
 }
+
+#musicMenu > * > *:hover{
+  border-bottom-style: solid;
+  border-color: #fff;
+  border-radius: 10px;
+  margin-top: 0px;
+  color: white;
+}
+
 
 // Primary #760FA3
 // Second  #1A0C63
@@ -199,12 +211,6 @@ table.mat-table {
   color: white;
 }
 
-div#table-footer {
-	//width: fit-content;
-  margin-bottom: 10%;
-	background-color: rgba(255, 255, 255, 0.7);
-}
-
 th.mat-header-cell {
   padding: 12px;
   max-width: 320px;
@@ -212,10 +218,6 @@ th.mat-header-cell {
   font-size: 14px;
   font-weight: bold;
   color: #FFFFFF;
-}
-
-#filtro {
-	margin: 14px;
 }
 
 .mat-paginator{
