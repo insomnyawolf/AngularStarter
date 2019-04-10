@@ -17,7 +17,20 @@ body {
   background-position: center center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
 
+*{
+  cursor:url("assets/cursor-small.png"), auto !important;
+}
+#volumeControl {
+  z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 100px;
+  width: 100px;
+  background-color: #fff;
+  display: block;
 }
 
 // Primary #760FA3
