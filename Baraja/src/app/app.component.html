@@ -1,21 +1,3 @@
-<div id="volumeControl">
-  <mat-card class="result">
-    <mat-card-content>
-       <mat-slider
-        class="example-margin"
-        [disabled]="disabled"
-        [invert]="invert"
-        [max]="max"
-        [min]="min"
-        [step]="step"
-        [thumbLabel]="thumbLabel"
-        [tickInterval]="tickInterval"
-        [(ngModel)]="value"
-        [vertical]="vertical">
-      </mat-slider>
-    </mat-card-content>
-  </mat-card>
-</div>
 <div id="musicMenu">
   <mat-list>
     <mat-list-item (click)="configSongDefault()"> VaporWave </mat-list-item>
@@ -25,6 +7,19 @@
     <mat-list-item (click)="configSongBerserk()"> Berserker </mat-list-item>
     <mat-list-item (click)="configSongInfectedMushroom()"> Infected Mushroom </mat-list-item>
   </mat-list>
+  <div id="volumeControl">
+    <mat-slider
+    [disabled]="disabled"
+    [invert]="invert"
+    [max]="max"
+    [min]="min"
+    [step]="step"
+    [thumbLabel]="thumbLabel"
+    [tickInterval]="tickInterval"
+    [(ngModel)]="value"
+    [vertical]="vertical">
+    </mat-slider>
+  </div>
 </div>
 <div>
 <video #myVideo id="myVideo" loop autoplay>
