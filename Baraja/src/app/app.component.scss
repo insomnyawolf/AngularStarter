@@ -39,17 +39,17 @@
         z-index: -1;
 
         &--red {
-            animation: glitch 300ms cubic-bezier(.25, .46, .45, .94) infinite;
+            animation: glitch 450ms cubic-bezier(.25, .46, .45, .94) infinite;
             color: red;
         }
 
         &--blue {
-            animation: glitch 300ms cubic-bezier(.25, .46, .45, .94) infinite reverse;
+            animation: glitch 450ms cubic-bezier(.25, .46, .45, .94) infinite reverse;
             color: blue;
         }
 
         &--green {
-            animation: glitch 300ms cubic-bezier(.25, .46, .45, .94) 100ms infinite;
+            animation: glitch 450ms cubic-bezier(.25, .46, .45, .94) 100ms infinite;
             color: #00FF0B;
         }
     }

@@ -40,10 +40,17 @@ body {
   left: 20px;
   display: block;
   background-color: black;
-  border: 2px outset #1FFFE0;
+  border: 2px outset #C4148B;
+  border-radius: 4px;
+  border-width: 5px;
+  background-color: #290B1F;
 }
 
 #musicMenu > * > *{
+  border-bottom-style: outset;
+  border-color: #fff;
+  border-radius: 5px;
+  margin-top: 0px;
   color: white;
 }
 
