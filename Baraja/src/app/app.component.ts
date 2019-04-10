@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.configSongDefault();
     setInterval(() => {
-         this.doBuffer();
+         //this.doBuffer();
       }, 1000);
     this.success.subscribe((message) => this.successMessage = message);
     this.success.pipe(
@@ -34,10 +34,10 @@ export class AppComponent implements OnInit {
     ).subscribe(() => this.successMessage = null);
   }
 
-  doBuffer(){
+/*  doBuffer(){
     const decode = ('audio-decode');
     const buffer = require("../assets/Lazerhawk_-_Overdrive.mp3");
-    /*
+
     let promisere = decode(this.source, {
       AudioContext = new (window["AudioContext"] || window["webkitAudioContext"])();}?, (err, audioBuffer)=>{
       guess(audioBuffer)
@@ -48,9 +48,9 @@ export class AppComponent implements OnInit {
           console.log(err);
       });
     }?);
-    console.log("2");*/
+    console.log("2");
 
-  }
+  }*/
 
   buyDLC() {
 
@@ -60,7 +60,6 @@ export class AppComponent implements OnInit {
   }
 
   configSongDefault(){
-    this.buffer
     this.setPlaySpeed(2.0);
     this.changeStyle('0deg');
     this.setSong('assets/Lazerhawk_-_Overdrive.webm');
