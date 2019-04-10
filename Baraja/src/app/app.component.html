@@ -1,3 +1,20 @@
+<div id="volumeControl">
+  <mat-card class="result">
+    <mat-card-content>
+      <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [invert]="invert"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [thumbLabel]="thumbLabel"
+          [tickInterval]="tickInterval"
+          [(ngModel)]="value"
+          [vertical]="vertical">
+      </mat-slider>
+    </mat-card-content>
+  </mat-card>
 <div>
 <video #myVideo id="myVideo" loop autoplay>
   <source src="assets/Retro_2017_(loop).webm" type="video/webm">
