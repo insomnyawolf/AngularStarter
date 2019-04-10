@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   dlcPrice: number;
 
+  vertical = true;
 
   ngOnInit(): void {
     this.configSongDefault();
