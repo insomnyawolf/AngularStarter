@@ -33,6 +33,20 @@ body {
   display: block;
 }
 
+#musicMenu{
+  z-index: 1000;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: block;
+  background-color: black;
+  border: 2px outset #1FFFE0;
+}
+
+#musicMenu > * > *{
+  color: white;
+}
+
 // Primary #760FA3
 // Second  #1A0C63
 // 3rd     #1FFFE0

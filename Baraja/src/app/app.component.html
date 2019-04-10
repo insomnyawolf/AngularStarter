@@ -16,6 +16,16 @@
     </mat-card-content>
   </mat-card>
 </div>
+<div id="musicMenu">
+  <mat-list>
+    <mat-list-item (click)="configSongDefault()"> VapoWave </mat-list-item>
+    <mat-list-item (click)="configSongKawaii()"> Kawaii </mat-list-item>
+    <mat-list-item (click)="configSongDoom()"> Doom </mat-list-item>
+    <mat-list-item (click)="configSongFireAndFlame()"> Fire And Flames </mat-list-item>
+    <mat-list-item (click)="configSongBerserk()"> Berserker </mat-list-item>
+    <mat-list-item (click)="configSongInfectedMushroom()"> Infected Mushroom </mat-list-item>
+  </mat-list>
+</div>
 <div>
 <video #myVideo id="myVideo" loop autoplay>
   <source src="assets/Retro_2017_(loop).webm" type="video/webm">
@@ -36,9 +46,6 @@
 <!--
 <iframe id="mediaSound" width="0%" height="0%" src="https://www.youtube.com/embed/39zKhsT5naI?autoplay=1&playlist=39zKhsT5naI&loop=1&start=10"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;">
-</iframe>
-<iframe id="myVideo" src="https://www.youtube.com/embed/AQiAEczCASw?controls=0&autoplay=1&loop=1&playlist=AQiAEczCASw&mute=1&showinfo=0"
-frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen>
 </iframe>
 -->
 
@@ -61,7 +68,7 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
     </h1>
     <nav id="tabbar">
       <button  mat-raised-button id="styleBlueButton" routerLink="/baraja" routerLinkActive="active">Baraja</button>
-      <button (click)="configSongInfectedMushroom()" id="styleWineButton" mat-raised-button>Projecto finalizado</button>
+      <button (click)="buyDLC()" id="styleWineButton" mat-raised-button>Projecto finalizado</button>
       <button mat-raised-button id="stylePurpleButton" routerLink="/ejemploRutaNoDefinida" routerLinkActive="active">Ruta No Definida</button>
     </nav>
   </div>
