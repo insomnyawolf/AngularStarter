@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   @ViewChild('myAudio') audio: ElementRef;
   successMessage: string;
 
+  dragOff = false;
   dlcPrice: number;
   isHide = false;
 
@@ -39,6 +40,16 @@ export class AppComponent implements OnInit {
 
   showMenu(){
     this.isHide = !this.isHide;
+  }
+
+  disableDrag(){
+    this.dragOff = true;
+    console.log("disable");
+  }
+
+  enableDrag(){
+    this.dragOff = false;
+    console.log("enable");
   }
 
 /*  doBuffer(){

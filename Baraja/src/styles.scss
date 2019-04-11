@@ -87,6 +87,15 @@ body {
   background-color: #383538;
 }
 
+.drageable{
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+             0 2px 2px 0 rgba(0, 0, 0, 0.14),
+             0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
 #musicMenu{
   height: 241 !important;
   z-index: 1000;
@@ -98,15 +107,10 @@ body {
   border-width: 5px;
   background-color: #290B1F;
   //-----------------------------
-  color: rgba(0, 0, 0, 0.87);
-  cursor: move;
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
-   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-             0 2px 2px 0 rgba(0, 0, 0, 0.14),
-             0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
 }
 
-#musicMenu:active{
+.drageable:active{
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
             0 8px 10px 1px rgba(0, 0, 0, 0.14),
             0 3px 14px 2px rgba(0, 0, 0, 0.12);

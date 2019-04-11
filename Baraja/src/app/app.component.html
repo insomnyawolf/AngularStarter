@@ -1,8 +1,8 @@
-<div id="musicMenu" cdkDrag>
+<div id="musicMenu" class="drageaable" [cdkDragDisabled]="dragOff" cdkDrag>
   <button mat-button id="musicButton" (dblclick)="showMenu()">Musica</button>
   <div *ngIf="isHide" id="displayedContent">
     <div>
-      <div id="volumeControl">
+      <div id="volumeControl" (mouseleave)="enableDrag()" (mouseup)="enableDrag()" (mousedown)="disableDrag()">
         <mat-slider
         [disabled]="disabled"
         [invert]="invert"
@@ -19,7 +19,6 @@
     </div>
     <div class="col-md-6">
       <mdb-card class="scrollbar-ripe-malinka" id="listMenu">
-
           <div (click)="configSongO()"> OverDrive </div>
           <div (click)="configSongGND()"> Great Nano Desu </div>
           <div (click)="configSongFAM()"> Flesh & Metal </div>
