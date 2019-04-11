@@ -17,7 +17,7 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSnackBarModule, MatStepperModule, MatTabsModule, MatToolbarModule, MatTooltipModule,
   MatTreeModule } from '@angular/material';
 
-  import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 // Browser Animation
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 

@@ -9,6 +9,7 @@ declare function require(path: string);
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
   title = 'Baraja';
   private success = new Subject<string>();
@@ -24,8 +25,9 @@ export class AppComponent implements OnInit {
   //buffer = this.audioCtx.createBuffer(2, 22050, 44100);
   //source=this.audioCtx.createBufferSource();
 
+
   ngOnInit(): void {
-    this.configSongDefault();
+    this.configSongO();
     setInterval(() => {
          //this.doBuffer();
       }, 1000);
@@ -64,40 +66,106 @@ export class AppComponent implements OnInit {
     this.success.next(this.dlcPrice + '' );
   }
 
-  configSongDefault(){
+  configSongO(){
+    this.setContrast('150%');
+    this.setBright('100%');
+    this.setGrayScale('0%');
     this.setPlaySpeed(2.0);
     this.changeStyle('0deg');
     this.setSong('assets/Lazerhawk_-_Overdrive.webm');
   }
 
-  configSongKawaii(){
+  configSongGND(){
+    this.setContrast('170%');
+    this.setBright('120%');
+    this.setGrayScale('0%');
     this.setPlaySpeed(1.6);
     this.changeStyle('24deg');
     this.setSong('assets/REDALiCE_-_Great_Nano_Desu.webm');
   }
 
-  configSongDoom(){
+  configSongFAM(){
+    this.setContrast('190%');
+    this.setBright('120%');
+    this.setGrayScale('0%');
     this.setPlaySpeed(1.3);
     this.changeStyle('90deg');
     this.setSong('assets/DOOM_(2016)_OST_-_Flesh_&_Metal.webm');
   }
 
-  configSongFireAndFlame(){
+  configSongTFAF(){
+    this.setContrast('180%');
+    this.setBright('110%');
+    this.setGrayScale('0%');
     this.setPlaySpeed(3.3);
-    this.changeStyle('110deg');
+    this.changeStyle('95deg');
     this.setSong('assets/Dragonforce_-_Through_the_Fire_and_Flames.webm');
   }
 
-  configSongBerserk(){
+  configSongMB(){
+    this.setContrast('400%');
+    this.setBright('100%');
+    this.setGrayScale('0%');
     this.setPlaySpeed(2.0);
-    this.changeStyle('90deg');
+    this.changeStyle('80deg');
     this.setSong('assets/Berserk_-_My Brother.webm');
   }
 
-  configSongInfectedMushroom(){
+  configSongBOM(){
+    this.setContrast('160%');
+    this.setBright('100%');
+    this.setGrayScale('0%');
     this.setPlaySpeed(1.0);
     this.changeStyle('200.34deg');
     this.setSong('assets/Infected_Mushroom_&_Bliss_-_Bliss_on_Mushrooms.webm');
+  }
+
+  configSongFTM(){
+    this.setContrast('160%');
+    this.setBright('150%');
+    this.setGrayScale('0%');
+    this.setPlaySpeed(3.0);
+    this.changeStyle('20deg');
+    this.setSong('assets/Feel_The_Melody_-_S3RL.webm');
+  }
+
+  configSongGGG(){
+    this.setContrast('150%');
+    this.setBright('100%');
+    this.setGrayScale('20%');
+    this.setPlaySpeed(2.5);
+    this.changeStyle('-10deg');
+    this.setSong('assets/Manuel_-_Gas_Gas_Gas.webm');
+  }
+
+  configSongBP(){
+    this.setContrast('175%');
+    this.setBright('140%');
+    this.setGrayScale('0%');
+    this.setPlaySpeed(7.0);
+    this.changeStyle('-10deg');
+    this.setSong('assets/NOMA_-_Brain_Power.webm');
+  }
+
+  configSongNS(){
+    this.setContrast('180%');
+    this.setBright('200%');
+    this.setGrayScale('90%');
+    this.setPlaySpeed(2.0);
+    this.changeStyle('-10deg');
+    this.setSong('assets/Pegboard_Nerds_-_New_Style.webm');
+  }
+
+  setContrast(percent: string){
+    document.documentElement.style.setProperty('--main-contrast', percent);
+  }
+
+  setBright(percent: string){
+    document.documentElement.style.setProperty('--main-bright', percent);
+  }
+
+  setGrayScale(percent: string){
+    document.documentElement.style.setProperty('--main-grayscale', percent);
   }
 
   setSong(url: string){
@@ -111,6 +179,4 @@ export class AppComponent implements OnInit {
   changeStyle(deg: string) {
     document.documentElement.style.setProperty('--main-hue-color', deg);
   }
-
-
 }

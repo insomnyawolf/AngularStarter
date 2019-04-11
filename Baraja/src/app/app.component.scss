@@ -1,7 +1,7 @@
 #myVideo{
-  filter: contrast(150%) hue-rotate(var(--main-hue-color));
+  filter: unquote("contrast(var(--main-contrast))") hue-rotate(var(--main-hue-color))
+  unquote("grayscale(var(--main-grayscale))") unquote("brightness(var(--main-bright))");
   pointer-events: none;
-
   width: 100%;
   z-index: -100;
   display: block;

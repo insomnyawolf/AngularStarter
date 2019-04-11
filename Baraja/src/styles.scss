@@ -112,6 +112,7 @@ body {
 
 .mat-slider-thumb{
   background-color: #1FFFE0 !important;
+  z-index: 1001;
 }
 
 .mat-slider-track-fill{
@@ -124,6 +125,9 @@ body {
   border-radius: 10px;
 }
 
+.mat-slider{
+  z-index: 10010101;
+}
 
 
 // Primary #760FA3
