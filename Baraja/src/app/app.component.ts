@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   successMessage: string;
 
   dlcPrice: number;
+  isHide = false;
 
   vertical = true;
 
@@ -32,6 +33,10 @@ export class AppComponent implements OnInit {
     this.success.pipe(
       debounceTime(1000 * 10)
     ).subscribe(() => this.successMessage = null);
+  }
+
+  showMenu(){
+    this.isHide = !this.isHide;
   }
 
 /*  doBuffer(){

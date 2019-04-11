@@ -16,6 +16,8 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule,
   MatSnackBarModule, MatStepperModule, MatTabsModule, MatToolbarModule, MatTooltipModule,
   MatTreeModule } from '@angular/material';
+
+  import { DragDropModule } from '@angular/cdk/drag-drop';
 // Browser Animation
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -24,6 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // BootStrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // Componentes Proyecto
 import { BarajaComponent } from './baraja/baraja.component';
@@ -99,6 +103,8 @@ import { DeletePopupComponent } from './delete-popup/delete-popup.component';
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
+  MDBBootstrapModule.forRoot(),
+  DragDropModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
