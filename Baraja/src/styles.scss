@@ -24,8 +24,10 @@ body {
 }
 
 #volumeControl {
+  margin-top: 0px;
+  margin-bottom: auto;
   min-width: 60px;
-  height: 90%;
+  height: 70%;
 }
 
 #volumeControl > mat-slider {
@@ -51,7 +53,14 @@ body {
 }
 
 #displayedContent{
+  display: flex;
   height: 200px;
+}
+
+#soundGif{
+  max-width: 40px;
+  max-height: 40px;
+  margin-left: 8px;
 }
 
 #listMenu{
@@ -104,8 +113,9 @@ body {
 }
 
 #musicMenu > * > *{
+  margin-top: 0 !important;
+  margin-bottom: auto !important;
   display:inline-table;
-  vertical-align: middle;
   margin-left: 0px;
   padding-left: 0px;
 }

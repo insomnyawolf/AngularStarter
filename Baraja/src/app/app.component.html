@@ -1,20 +1,23 @@
 <div id="musicMenu" cdkDrag>
   <button mat-button id="musicButton" (dblclick)="showMenu()">Musica</button>
   <div *ngIf="isHide" id="displayedContent">
-    <div id="volumeControl">
-      <mat-slider
-      [disabled]="disabled"
-      [invert]="invert"
-      [max]="max"
-      [min]="min"
-      [step]="step"
-      [thumbLabel]="thumbLabel"
-      [tickInterval]="tickInterval"
-      [(ngModel)]="value"
-      [vertical]="vertical">
-      </mat-slider>
+    <div>
+      <div id="volumeControl">
+        <mat-slider
+        [disabled]="disabled"
+        [invert]="invert"
+        [max]="max"
+        [min]="min"
+        [step]="step"
+        [thumbLabel]="thumbLabel"
+        [tickInterval]="tickInterval"
+        [(ngModel)]="value"
+        [vertical]="vertical">
+        </mat-slider>
+      </div>
+      <img src="assets/Speaker.gif" id="soundGif">
     </div>
-    <div class="col-md-6 mb-4">
+    <div class="col-md-6">
       <mdb-card class="scrollbar-ripe-malinka" id="listMenu">
 
           <div (click)="configSongO()"> OverDrive </div>
