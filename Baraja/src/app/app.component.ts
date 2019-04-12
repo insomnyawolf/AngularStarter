@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   dragOff = false;
   dlcPrice: number;
   isHide = false;
-
+  volume = 1;
   vertical = true;
 
   //buffer = this.audioCtx.createBuffer(2, 22050, 44100);
@@ -42,14 +42,24 @@ export class AppComponent implements OnInit {
     this.isHide = !this.isHide;
   }
 
+  muteAudio(){
+    if(this.volume == 0){
+      this.audio.nativeElement.volume = 1;
+      this.volume = 1;
+    }
+    else{
+      this.audio.nativeElement.volume = 0;
+      this.volume = 0;
+    }
+  }
+
   disableDrag(){
     this.dragOff = true;
-    console.log("disable");
   }
 
   enableDrag(){
     this.dragOff = false;
-    console.log("enable");
+    this.audio.nativeElement.volume = this.volume;
   }
 
 /*  doBuffer(){

@@ -4,18 +4,14 @@
     <div>
       <div id="volumeControl" (mouseleave)="enableDrag()" (mouseup)="enableDrag()" (mousedown)="disableDrag()">
         <mat-slider
-        [disabled]="disabled"
-        [invert]="invert"
-        [max]="max"
-        [min]="min"
-        [step]="step"
-        [thumbLabel]="thumbLabel"
-        [tickInterval]="tickInterval"
-        [(ngModel)]="value"
+        [max]="1"
+        [min]="0"
+        [step]="0.01"
+        [(ngModel)]="volume"
         [vertical]="vertical">
         </mat-slider>
       </div>
-      <img src="assets/Speaker.gif" id="soundGif">
+      <img src="assets/Speaker.gif" id="soundGif" (click)="muteAudio()">
     </div>
     <div class="col-md-6">
       <mdb-card class="scrollbar-ripe-malinka" id="listMenu">
