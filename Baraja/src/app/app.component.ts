@@ -20,18 +20,36 @@ export class AppComponent implements OnInit {
   dragOff = false;
   dlcPrice: number;
   isHide = false;
-  volume = 1;
+  volume = 0;
   vertical = true;
 
+  offset = 0.0;
+
+  loadingSample: boolean = false;
+  audioBuffer: AudioBuffer;
+  audioContext: AudioContext;
+  bufferSource: any;
   //buffer = this.audioCtx.createBuffer(2, 22050, 44100);
   //source=this.audioCtx.createBufferSource();
 
-
   ngOnInit(): void {
-    this.configSongO();
+    this.audio.nativeElement.volume = 0;
+    this.audioContext = new AudioContext();
+
+    this.loadingSample = true;
+    this.setSong('assets/Dragonforce_-_Through_the_Fire_and_Flames.webm')
+        .then(audioBuffer => {
+            this.loadingSample = false;
+            this.audioBuffer = audioBuffer;
+            this.playSample();
+        })
+        .catch(error => {throw error});
+
+
     setInterval(() => {
-         //this.doBuffer();
-      }, 1000);
+
+      this.doBuffer();
+    }, 2000);
     this.success.subscribe((message) => this.successMessage = message);
     this.success.pipe(
       debounceTime(1000 * 10)
@@ -62,26 +80,44 @@ export class AppComponent implements OnInit {
     this.audio.nativeElement.volume = this.volume;
   }
 
-/*  doBuffer(){
-    const decode = ('audio-decode');
-    const buffer = require("../assets/Lazerhawk_-_Overdrive.mp3");
+  setSong(url: string): Promise<any> {
+      return fetch(url)
+          .then(response => response.arrayBuffer())
+          .then(buffer => {
+              return new Promise((resolve, reject) => {
+                  this.audioContext.decodeAudioData(
+                      buffer,
+                      resolve,
+                      reject
+                  );
+              })
+          });
+  }
 
-    let promisere = decode(this.source, {
-      AudioContext = new (window["AudioContext"] || window["webkitAudioContext"])();}?, (err, audioBuffer)=>{
-      guess(audioBuffer)
-      .then(({ bpm, offset }) => {
+  playSample() {
+    if(!this.loadingSample){
+      this.bufferSource = this.audioContext.createBufferSource();
+      this.bufferSource.buffer = this.audioBuffer;
+      this.bufferSource.connect(this.audioContext.destination);
+      this.bufferSource.start(0);
+      this.offset = 0.0;
+  }
+}
+
+  doBuffer(){
+    if(!this.loadingSample){
+      guess(this.audioBuffer, this.offset, 2.0)
+      .then(({ bpm,  offset}) => {
           console.log(bpm);
       })
       .catch((err) => {
           console.log(err);
       });
-    }?);
-    console.log("2");
-
-  }*/
+      this.offset += 2.0;
+    }
+    }
 
   buyDLC() {
-
     // this.success.next(`${new Date()} - Message successfully changed.`);
     this.dlcPrice = Math.floor((Math.random() * 50) + 50 );
     this.success.next(this.dlcPrice + '' );
@@ -93,7 +129,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(2.0);
     this.setHue('0deg');
-    this.setSong('assets/Lazerhawk_-_Overdrive.webm');
+    this.setSong('assets/Lazerhawk_-_Overdrive.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongGND(){
@@ -102,7 +144,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(1.6);
     this.setHue('24deg');
-    this.setSong('assets/REDALiCE_-_Great_Nano_Desu.webm');
+    this.setSong('assets/REDALiCE_-_Great_Nano_Desu.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongFAM(){
@@ -111,7 +159,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(1.3);
     this.setHue('90deg');
-    this.setSong('assets/DOOM_(2016)_OST_-_Flesh_&_Metal.webm');
+    this.setSong('assets/DOOM_(2016)_OST_-_Flesh_&_Metal.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongTFAF(){
@@ -120,7 +174,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(3.3);
     this.setHue('115deg');
-    this.setSong('assets/Dragonforce_-_Through_the_Fire_and_Flames.webm');
+    this.setSong('assets/Dragonforce_-_Through_the_Fire_and_Flames.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongMB(){
@@ -129,7 +189,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(2.0);
     this.setHue('80deg');
-    this.setSong('assets/Berserk_-_My Brother.webm');
+    this.setSong('assets/Berserk_-_My Brother.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongBOM(){
@@ -138,7 +204,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(1.0);
     this.setHue('200.34deg');
-    this.setSong('assets/Infected_Mushroom_&_Bliss_-_Bliss_on_Mushrooms.webm');
+    this.setSong('assets/Infected_Mushroom_&_Bliss_-_Bliss_on_Mushrooms.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongFTM(){
@@ -147,7 +219,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(3.0);
     this.setHue('20deg');
-    this.setSong('assets/Feel_The_Melody_-_S3RL.webm');
+    this.setSong('assets/Feel_The_Melody_-_S3RL.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongGGG(){
@@ -156,7 +234,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('20%');
     this.setPlaySpeed(2.5);
     this.setHue('-10deg');
-    this.setSong('assets/Manuel_-_Gas_Gas_Gas.webm');
+    this.setSong('assets/Manuel_-_Gas_Gas_Gas.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongBP(){
@@ -165,7 +249,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('0%');
     this.setPlaySpeed(7.0);
     this.setHue('-20deg');
-    this.setSong('assets/NOMA_-_Brain_Power.webm');
+    this.setSong('assets/NOMA_-_Brain_Power.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   configSongNS(){
@@ -174,7 +264,13 @@ export class AppComponent implements OnInit {
     this.setGrayScale('90%');
     this.setPlaySpeed(2.0);
     this.setHue('-10deg');
-    this.setSong('assets/Pegboard_Nerds_-_New_Style.webm');
+    this.setSong('assets/Pegboard_Nerds_-_New_Style.webm')
+    .then(audioBuffer => {
+        this.loadingSample = false;
+        this.audioBuffer = audioBuffer;
+        this.playSample();
+    })
+    .catch(error => {throw error});
   }
 
   setContrast(percent: string){
@@ -189,7 +285,7 @@ export class AppComponent implements OnInit {
     document.documentElement.style.setProperty('--main-grayscale', percent);
   }
 
-  setSong(url: string){
+  deprecatedsetSong(url: string){
     this.audio.nativeElement.src = url;
   }
 
