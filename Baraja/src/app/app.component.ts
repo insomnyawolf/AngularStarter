@@ -116,13 +116,13 @@ export class AppComponent implements OnInit {
     if(!this.loadingSample){
       guess(this.audioBuffer, this.offset, 1.0)
       .then(({ bpm,  offset}) => {
-          console.log("bpm: " + bpm);
+          //console.log("bpm: " + bpm);
           var speedo = bpm * 3.5 / 120;
           if(speedo < 0.8)
             speedo = 0.8
           else if(speedo > 6.0)
             speedo = 6.0;
-          console.log("speed: " + speedo);
+          //console.log("speed: " + speedo);
           this.setPlaySpeed(speedo)
       })
       .catch((err) => {
