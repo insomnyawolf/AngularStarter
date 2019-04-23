@@ -25,17 +25,19 @@ export class AppComponent implements OnInit {
 
   offset = 0.0;
 
+  isPlaying = false;
   loadingSample: boolean = false;
   audioBuffer: AudioBuffer;
   audioContext: AudioContext;
   bufferSource: any;
-  //buffer = this.audioCtx.createBuffer(2, 22050, 44100);
-  //source=this.audioCtx.createBufferSource();
+  gainNode: any;
 
   ngOnInit(): void {
-    this.audio.nativeElement.volume = 0;
     this.audioContext = new AudioContext();
-
+    this.bufferSource = this.audioContext.createBufferSource();
+    this.gainNode = this.audioContext.createGain();
+    this.gainNode.connect(this.audioContext.destination);
+    this.gainNode.gain.value = 0;
     this.loadingSample = true;
     this.setSong('assets/Dragonforce_-_Through_the_Fire_and_Flames.webm')
         .then(audioBuffer => {
@@ -62,11 +64,11 @@ export class AppComponent implements OnInit {
 
   muteAudio(){
     if(this.volume == 0){
-      this.audio.nativeElement.volume = 1;
+      this.gainNode.gain.value = 1;
       this.volume = 1;
     }
     else{
-      this.audio.nativeElement.volume = 0;
+      this.gainNode.gain.value = 0;
       this.volume = 0;
     }
   }
@@ -77,7 +79,7 @@ export class AppComponent implements OnInit {
 
   enableDrag(){
     this.dragOff = false;
-    this.audio.nativeElement.volume = this.volume;
+    this.gainNode.gain.value = this.volume;
   }
 
   setSong(url: string): Promise<any> {
@@ -96,10 +98,16 @@ export class AppComponent implements OnInit {
 
   playSample() {
     if(!this.loadingSample){
-      this.bufferSource = this.audioContext.createBufferSource();
+      if (this.isPlaying) {
+        this.bufferSource.stop();
+        this.isPlaying = false;
+        this.bufferSource = this.audioContext.createBufferSource();
+      }
       this.bufferSource.buffer = this.audioBuffer;
-      this.bufferSource.connect(this.audioContext.destination);
+      this.bufferSource.connect(this.gainNode);
+      //this.bufferSource.connect(this.audioContext.destination);
       this.bufferSource.start(0);
+      this.isPlaying = true;
       this.offset = 0.0;
   }
 }
