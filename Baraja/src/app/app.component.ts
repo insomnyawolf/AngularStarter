@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     setInterval(() => {
 
       this.doBuffer();
-    }, 2000);
+    }, 1000);
     this.success.subscribe((message) => this.successMessage = message);
     this.success.pipe(
       debounceTime(1000 * 10)
@@ -106,14 +106,21 @@ export class AppComponent implements OnInit {
 
   doBuffer(){
     if(!this.loadingSample){
-      guess(this.audioBuffer, this.offset, 2.0)
+      guess(this.audioBuffer, this.offset, 1.0)
       .then(({ bpm,  offset}) => {
-          console.log(bpm);
+          console.log("bpm: " + bpm);
+          var speedo = bpm * 3.5 / 120;
+          if(speedo < 0.8)
+            speedo = 0.8
+          else if(speedo > 6.0)
+            speedo = 6.0;
+          console.log("speed: " + speedo);
+          this.setPlaySpeed(speedo)
       })
       .catch((err) => {
           console.log(err);
       });
-      this.offset += 2.0;
+      this.offset += 1.0;
     }
     }
 
