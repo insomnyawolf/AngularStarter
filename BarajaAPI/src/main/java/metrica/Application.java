@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
-@ComponentScan({ "controller" })
+@ComponentScan({ "controller", "security" })
 @EntityScan("pojos")
 @EnableJpaRepositories("pojos")
 public class Application {
