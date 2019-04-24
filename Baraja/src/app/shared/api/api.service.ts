@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +18,21 @@ export class ApiService {
       return this.http.get(this.API + endpoint);
     }
 
-    apiPost(endpoint: string, baraja: any, headers: HttpHeaders): Observable<any> {
+    apiPost(endpoint: string, body: any, headers: HttpHeaders): Observable<any> {
       let result: Observable<any>;
-      result = this.http.post(this.API + endpoint, baraja, {headers});
+      result = this.http.post(this.API + endpoint, body, {headers});
       return result;
     }
 
-    apiPut(endpoint: string, baraja: any, id: number, headers: HttpHeaders): Observable<any>{
+    apiPostLogin(endpoint: string, data: any, headers: HttpHeaders): Observable<HttpEvent<string>> {
       let result: Observable<any>;
-      result = this.http.put(this.API + endpoint + '/' + id, baraja, {headers});
+      result = this.http.post(this.API + endpoint, data, {headers});
+      return result;
+    }
+
+    apiPut(endpoint: string, body: any, id: number, headers: HttpHeaders): Observable<any>{
+      let result: Observable<any>;
+      result = this.http.put(this.API + endpoint + '/' + id, body, {headers});
       return result;
     }
 

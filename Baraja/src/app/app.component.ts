@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   offset = 0.0;
 
   isPlaying = false;
-  loadingSample: boolean = false;
+  loadingSample = false;
   audioBuffer: AudioBuffer;
   audioContext: AudioContext;
   bufferSource: any;
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
             this.audioBuffer = audioBuffer;
             this.playSample();
         })
-        .catch(error => {throw error});
+        .catch(error => {throw error; });
 
 
     setInterval(() => {
@@ -58,26 +58,25 @@ export class AppComponent implements OnInit {
     ).subscribe(() => this.successMessage = null);
   }
 
-  showMenu(){
+  showMenu() {
     this.isHide = !this.isHide;
   }
 
-  muteAudio(){
-    if(this.volume == 0){
+  muteAudio() {
+    if (this.volume === 0) {
       this.gainNode.gain.value = 1;
       this.volume = 1;
-    }
-    else{
+    } else {
       this.gainNode.gain.value = 0;
       this.volume = 0;
     }
   }
 
-  disableDrag(){
+  disableDrag() {
     this.dragOff = true;
   }
 
-  enableDrag(){
+  enableDrag() {
     this.dragOff = false;
     this.gainNode.gain.value = this.volume;
   }
@@ -92,12 +91,12 @@ export class AppComponent implements OnInit {
                       resolve,
                       reject
                   );
-              })
+              });
           });
   }
 
   playSample() {
-    if(!this.loadingSample){
+    if (!this.loadingSample) {
       if (this.isPlaying) {
         this.bufferSource.stop();
         this.isPlaying = false;
@@ -105,25 +104,26 @@ export class AppComponent implements OnInit {
       }
       this.bufferSource.buffer = this.audioBuffer;
       this.bufferSource.connect(this.gainNode);
-      //this.bufferSource.connect(this.audioContext.destination);
+      // this.bufferSource.connect(this.audioContext.destination);
       this.bufferSource.start(0);
       this.isPlaying = true;
       this.offset = 0.0;
   }
 }
 
-  doBuffer(){
-    if(!this.loadingSample){
+  doBuffer() {
+    if (!this.loadingSample) {
       guess(this.audioBuffer, this.offset, 1.0)
       .then(({ bpm,  offset}) => {
-          //console.log("bpm: " + bpm);
-          var speedo = bpm * 3.5 / 120;
-          if(speedo < 0.8)
-            speedo = 0.8
-          else if(speedo > 6.0)
+          // console.log("bpm: " + bpm);
+          let speedo = bpm * 3.5 / 120;
+          if (speedo < 0.8) {
+            speedo = 0.8;
+          } else if (speedo > 6.0) {
             speedo = 6.0;
-          //console.log("speed: " + speedo);
-          this.setPlaySpeed(speedo)
+               }
+          // console.log("speed: " + speedo);
+          this.setPlaySpeed(speedo);
       })
       .catch((err) => {
           console.log(err);
@@ -138,7 +138,7 @@ export class AppComponent implements OnInit {
     this.success.next(this.dlcPrice + '' );
   }
 
-  configSongO(){
+  configSongO() {
     this.setContrast('150%');
     this.setBright('100%');
     this.setGrayScale('0%');
@@ -150,10 +150,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongGND(){
+  configSongGND() {
     this.setContrast('170%');
     this.setBright('120%');
     this.setGrayScale('0%');
@@ -165,10 +165,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongFAM(){
+  configSongFAM() {
     this.setContrast('190%');
     this.setBright('120%');
     this.setGrayScale('0%');
@@ -180,10 +180,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongTFAF(){
+  configSongTFAF() {
     this.setContrast('180%');
     this.setBright('110%');
     this.setGrayScale('0%');
@@ -195,10 +195,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => { throw error; });
   }
 
-  configSongMB(){
+  configSongMB() {
     this.setContrast('400%');
     this.setBright('100%');
     this.setGrayScale('0%');
@@ -210,10 +210,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongBOM(){
+  configSongBOM() {
     this.setContrast('160%');
     this.setBright('100%');
     this.setGrayScale('0%');
@@ -225,10 +225,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongFTM(){
+  configSongFTM() {
     this.setContrast('160%');
     this.setBright('150%');
     this.setGrayScale('0%');
@@ -240,10 +240,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongGGG(){
+  configSongGGG() {
     this.setContrast('150%');
     this.setBright('100%');
     this.setGrayScale('20%');
@@ -255,10 +255,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongBP(){
+  configSongBP() {
     this.setContrast('175%');
     this.setBright('140%');
     this.setGrayScale('0%');
@@ -270,10 +270,10 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  configSongNS(){
+  configSongNS() {
     this.setContrast('180%');
     this.setBright('200%');
     this.setGrayScale('90%');
@@ -285,22 +285,22 @@ export class AppComponent implements OnInit {
         this.audioBuffer = audioBuffer;
         this.playSample();
     })
-    .catch(error => {throw error});
+    .catch(error => {throw error; });
   }
 
-  setContrast(percent: string){
+  setContrast(percent: string) {
     document.documentElement.style.setProperty('--main-contrast', percent);
   }
 
-  setBright(percent: string){
+  setBright(percent: string) {
     document.documentElement.style.setProperty('--main-bright', percent);
   }
 
-  setGrayScale(percent: string){
+  setGrayScale(percent: string) {
     document.documentElement.style.setProperty('--main-grayscale', percent);
   }
 
-  deprecatedsetSong(url: string){
+  deprecatedsetSong(url: string) {
     this.audio.nativeElement.src = url;
   }
 

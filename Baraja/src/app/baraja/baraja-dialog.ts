@@ -26,7 +26,7 @@ export class BarajaDialogComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public baraja: Baraja,
               private fbuilder: FormBuilder,
               private apiService: ApiService,
-              public dialog: MatDialog,) {}
+              public dialog: MatDialog) {}
 
   formGroup: FormGroup;
   endpoint = '/baraja';
