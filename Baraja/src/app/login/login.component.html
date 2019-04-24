@@ -1,0 +1,28 @@
+<div id="loginDiv">
+  <h2 id="title">
+    Login
+  </h2>
+  <div id="fields">
+    <form #loginForm="ngForm" (ngSubmit)="tryLogin(loginForm.value)">
+    <div id="nameLogin">
+      <h3 id="miniTitle">Name:</h3>
+      <mat-form-field id="whiteLetter" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput required [(ngModel)]="name" name="name">
+        </mat-form-field>
+    </div>
+    <div id="passwordLogin">
+      <h3 id="miniTitle">Password:</h3>
+      <mat-form-field id="whiteLetter" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput required [(ngModel)]="password" name="password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+    <mat-dialog-actions>
+      <button mat-raised id="stylePurpleButton" type="submit" class="button"
+      [disabled]="!loginForm.form.valid">Aceptar</button>
+    </mat-dialog-actions>
+    </form>
+  </div>
+</div>

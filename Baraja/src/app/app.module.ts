@@ -34,6 +34,7 @@ import { BarajaComponent } from './baraja/baraja.component';
 import { ErrorComponent } from './error/error.component';
 import { BarajaDialogComponent } from './baraja/baraja-dialog';
 import { DeletePopupComponent } from './delete-popup/delete-popup.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DeletePopupComponent } from './delete-popup/delete-popup.component';
     BarajaComponent,
     ErrorComponent,
     BarajaDialogComponent,
-    DeletePopupComponent
+    DeletePopupComponent,
+    LoginComponent
   ],
   entryComponents: [
     BarajaDialogComponent,
